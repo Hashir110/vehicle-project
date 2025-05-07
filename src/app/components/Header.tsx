@@ -8,7 +8,7 @@ export default function Header() {
       <div className="text-xl font-bold">
         <Link href="/">
           <img
-            src="https://img.freepik.com/premium-vector/car-history-report-vector-icon_116137-6031.jpg?w=740"
+            src="/car-check-logo-symbol-icon-template_166742-4826.avif"
             alt=""
             width={70}
             height={70}

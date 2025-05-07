@@ -10,7 +10,7 @@ export default function Footer() {
         {/* Logo */}
         <div className="flex flex-col items-start">
           <img
-            src="https://img.freepik.com/premium-vector/car-history-report-vector-icon_116137-6031.jpg?w=740" // apne logo ka path yahan do
+            src="/car-check-logo-symbol-icon-template_166742-4826.avif"
             alt="The Vehicle Explorer Logo"
             width={150}
             height={150}

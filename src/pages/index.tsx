@@ -5,10 +5,12 @@ import Partners from "@/app/components/Partners";
 import Testimonials from "@/app/components/Testimonials";
 import TitleWithDescription from "@/app/components/TitleWithDescription";
 
+
 export default function HomePage() {
   return (
     <>
       <HeroSection />
+
       <TitleWithDescription />
       <CounterComponent />
       <DecodeWinNumber />

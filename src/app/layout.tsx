@@ -1,6 +1,9 @@
+import { CartProvider } from "@/context/CartContext";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import "./globals.css";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 
 export const metadata = {
@@ -16,9 +19,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-white text-black">
-        <Header />
-        <main className="min-h-[90vh] px-4">{children}</main>
-        <Footer />
+        <CartProvider>
+          <Header />
+          <main className="min-h-[90vh] px-4">{children}</main>
+          <Footer />
+          <ToastContainer />
+        </CartProvider>
       </body>
     </html>
   );

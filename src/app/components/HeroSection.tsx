@@ -1,6 +1,33 @@
-import Link from "next/link";
+"use client";
+
+
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { toast } from "react-toastify";
 
 export default function HeroSection() {
+  const [vehicleNumber, setVehicleNumber] = useState("");
+  const [error, setError] = useState("");
+  const router = useRouter();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!vehicleNumber.trim()) {
+      toast("Vehicle number is required");
+      return;
+    }
+
+    const pattern = /^[A-Z0-9-]{4,12}$/i;
+    if (!pattern.test(vehicleNumber)) {
+      toast("Enter a valid vehicle number (e.g., ABC-1234)");
+      return;
+    }
+
+    toast.success("Successfully redirect to packages page");
+    router.push("/peckages"); // ✅ redirect after validation success
+  };
+
   return (
     <section
       className="h-[90vh] bg-cover bg-center flex items-center justify-start text-white px-6"
@@ -29,14 +56,23 @@ export default function HeroSection() {
         </ul>
 
         <div className="flex items-center space-x-2">
-          <input
-            type="text"
-            placeholder="Enter your vehcile number"
-            className="px-3 py-2 rounded-md text-black w-full bg-white"
-          />
-          <Link href="/peckages" className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-md text-white font-semibold">
-            Check Now
-          </Link>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Enter your vehicle number"
+              className="px-3 py-2 rounded-md text-black w-full bg-white border border-gray-300"
+              value={vehicleNumber}
+              onChange={(e) => setVehicleNumber(e.target.value)}
+            />
+            {error && <p className="text-red-500 mt-1">{error}</p>}
+
+            <button
+              type="submit"
+              className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-md mt-3"
+            >
+              Submit
+            </button>
+          </form>
         </div>
       </div>
     </section>

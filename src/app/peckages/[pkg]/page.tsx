@@ -1,5 +1,8 @@
-// app/car-packages/[pkg]/page.tsx
+"use client";
+import { useCart } from "@/context/CartContext";
 import { notFound } from "next/navigation";
+import React, { useState } from "react";
+import { toast } from "react-toastify";
 
 const carPackages = {
   gold: {
@@ -35,20 +38,61 @@ const carPackages = {
 export default function CarPackagePage({
   params,
 }: {
-  params: { pkg: string };
+  params: Promise<{ pkg: string }>;
 }) {
-  const pkgData = carPackages[params.pkg as keyof typeof carPackages];
+  const { pkg } = React.use(params); // ✅ unwrap params safely
+  const pkgData = carPackages[pkg as keyof typeof carPackages];
+  const { addToCart } = useCart();
+  const [isAdded, setIsAdded] = useState(false);
 
   if (!pkgData) return notFound();
+
+  const handleAddToCart = () => {
+    // Add item to cart
+    addToCart({
+      id: pkg,
+      title: pkg,
+      price: pkgData.price,
+    });
+
+    // Show toast notification
+    setIsAdded(true);
+    toast.success("Added to cart", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
 
   return (
     <div className="min-h-screen p-10 bg-gray-100">
       <div className="bg-white p-6 rounded-xl shadow-lg max-w-2xl mx-auto">
-        <h1 className="text-3xl font-bold capitalize mb-2">
-          {params.pkg} Package
-        </h1>
+        <h1 className="text-3xl font-bold capitalize mb-2">{pkg} Package</h1>
         <p className="text-lg text-green-600 mb-4">Price: {pkgData.price}</p>
-        <ul className="list-disc pl-6 space-y-1">
+        <button
+          onClick={handleAddToCart}
+          disabled={isAdded}
+          className={`font-semibold py-2 px-4 rounded 
+    ${
+      isAdded
+        ? "bg-gray-400 cursor-not-allowed text-white"
+        : "bg-blue-500 hover:bg-blue-600 text-white"
+    }`}
+        >
+          {isAdded ? "Added to Cart" : "Add to Cart"}
+        </button>
+
+        {isAdded && (
+          <p className="text-green-500 mt-2">
+            Item is already added to the cart!
+          </p>
+        )}
+        <ul className="list-disc pl-6 space-y-1 mt-4">
           {pkgData.features.map((item, index) => (
             <li key={index}>{item}</li>
           ))}

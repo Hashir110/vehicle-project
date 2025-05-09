@@ -1,7 +1,13 @@
+"use client";
 import Link from "next/link";
 import { ShoppingCart } from "lucide-react";
+import { useState } from "react";
+import ViewCartModal from "./ViewCartComponent";
+import { useCart } from "@/context/CartContext";
 
 export default function Header() {
+  const { cart } = useCart();
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <header className="bg-black text-white px-6 py-4 flex justify-between items-center">
       {/* Logo */}
@@ -37,11 +43,16 @@ export default function Header() {
 
       {/* Cart */}
       <div className="relative flex items-center">
-        <span className="mr-2 font-bold text-white">£24.99</span>
-        <ShoppingCart className="w-6 h-6" />
         <span className="absolute -top-2 -right-2 bg-red-600 text-xs text-white rounded-full w-5 h-5 flex items-center justify-center">
-          1
+          {cart.length}
         </span>
+        {/* Trigger Button */}
+        <button onClick={() => setIsOpen(true)}>
+          <ShoppingCart className="w-6 h-6 text-white" />
+        </button>
+
+        {/* Modal */}
+        {isOpen && <ViewCartModal onClose={() => setIsOpen(false)} />}
       </div>
     </header>
   );

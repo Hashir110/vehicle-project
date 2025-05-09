@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function HeroSection() {
   return (
     <section
@@ -32,9 +34,9 @@ export default function HeroSection() {
             placeholder="Enter your vehcile number"
             className="px-3 py-2 rounded-md text-black w-full bg-white"
           />
-          <button className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-md text-white font-semibold">
+          <Link href="/peckages" className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-md text-white font-semibold">
             Check Now
-          </button>
+          </Link>
         </div>
       </div>
     </section>

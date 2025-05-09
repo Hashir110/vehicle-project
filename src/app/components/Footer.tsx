@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
 
@@ -43,13 +42,13 @@ export default function Footer() {
           <h4 className="font-bold mb-4">Our Policies</h4>
           <ul className="space-y-2">
             <li>
-              <Link href="/privacy">Privacy Policy</Link>
+              <Link href="/privacy_policy">Privacy Policy</Link>
             </li>
             <li>
-              <Link href="/refund">Refund Policy</Link>
+              <Link href="/refund_policy">Refund Policy</Link>
             </li>
             <li>
-              <Link href="/terms">Terms & Conditions</Link>
+              <Link href="/terms_condition">Terms & Conditions</Link>
             </li>
           </ul>
         </div>

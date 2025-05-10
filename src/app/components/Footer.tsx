@@ -91,7 +91,7 @@ export default function Footer() {
       </div>
 
       {/* Copyright */}
-      <div className="mt-12 text-center bg-red-500 text-white py-4">
+      <div className="mt-12 text-center bg-[#0f172a] text-white py-4">
         &copy; {new Date().getFullYear()} The Vehicle Explorer. All rights
         reserved.
       </div>

@@ -48,7 +48,7 @@ export default function Header() {
         </span>
         {/* Trigger Button */}
         <button onClick={() => setIsOpen(true)}>
-          <ShoppingCart className="w-6 h-6 text-white" />
+          <ShoppingCart className="w-6 h-6 text-white hover:cursor-pointer" />
         </button>
 
         {/* Modal */}

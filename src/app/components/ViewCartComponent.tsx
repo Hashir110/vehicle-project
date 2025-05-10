@@ -1,27 +1,42 @@
 "use client";
 
 import { useCart } from "@/context/CartContext";
+import { X } from "lucide-react";
 
 export default function ViewCartModal({ onClose }: { onClose: () => void }) {
   const { cart, removeFromCart } = useCart();
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50">
-      <div className="bg-white p-6 rounded-xl shadow-xl w-[90%] max-w-md">
-        <h2 className="text-xl font-bold mb-4 text-black">Your Cart</h2>
+    <div className="fixed inset-0 z-50">
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/50 " onClick={onClose} />
 
+      {/* Slide-in Cart */}
+      <div className="absolute right-0 top-0 h-full w-80 bg-white shadow-xl p-6 overflow-y-auto animate-slide-in">
+        {/* Header */}
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-xl font-bold text-black">Your Cart</h2>
+          <button onClick={onClose}>
+            <X className="text-black hover:text-gray-600 hover:cursor-pointer" />
+          </button>
+        </div>
+
+        {/* Cart Items */}
         {cart.length === 0 ? (
           <p className="text-gray-500">Your cart is empty.</p>
         ) : (
           <ul className="space-y-4">
             {cart.map((item) => (
-              <li key={item.id} className="flex justify-between items-center">
+              <li
+                key={item.id}
+                className="flex justify-between items-center border-b pb-2"
+              >
                 <div>
-                  <h3 className="font-semibold text-gray-600">{item.title}</h3>
-                  <p className="text-sm text-gray-600">{item.price}</p>
+                  <h3 className="font-semibold text-gray-700">{item.title}</h3>
+                  <p className="text-sm text-gray-500">{item.price}</p>
                 </div>
                 <button
-                  className="text-red-600 text-sm"
+                  className="text-red-500 text-sm hover:underline hover:cursor-pointer"
                   onClick={() => removeFromCart(item.id)}
                 >
                   Remove
@@ -31,16 +46,11 @@ export default function ViewCartModal({ onClose }: { onClose: () => void }) {
           </ul>
         )}
 
-        <div className="mt-6 flex justify-between">
-          <button
-            onClick={onClose}
-            className="bg-gray-300 px-4 py-2 rounded hover:bg-gray-400"
-          >
-            Close
-          </button>
+        {/* Footer */}
+        <div className="mt-6">
           <a
-            href="/checkout"
-            className="bg-yellow-500 px-4 py-2 rounded hover:bg-yellow-600 text-black font-semibold"
+            href="/billing-address"
+            className="block w-full text-center bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-2 rounded"
           >
             Checkout
           </a>

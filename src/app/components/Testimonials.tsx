@@ -52,19 +52,19 @@ const AnimatedTestimonials = () => {
   const currentTestimonial = testimonials[activeIndex];
 
   return (
-    <div className="w-full bg-black text-white py-12">
+    <div className="w-full bg-black text-white">
       {/* Header Image */}
-      <div className="flex justify-center mb-20">
+      <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px]">
         <img
-          src="https://img.freepik.com/free-photo/batmobile-concept-car-with-neon-lights_23-2151649891.jpg?t=st=1746641328~exp=1746644928~hmac=ce479cf4e8dfe5a2f5a3be5b69c29f6884c7af2b217b5b7a24b0475d0bc84c91&w=1380"
+          src="https://img.freepik.com/free-photo/night-drive-supercar_23-2151955623.jpg?t=st=1746919599~exp=1746923199~hmac=9bd969aafc22fa6c3b154b38441f1ce134ad13da0b25cbf7ec7ab5aa8d606589&w=826"
           alt="Car Service"
-          className="object-cover -mt-12"
+          className="absolute inset-0 w-full h-full object-cover"
         />
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row">
+      <div className="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row">
         {/* Left side - Testimonial */}
-        <div className="md:w-1/2 mb-8 md:mb-0 md:pr-12 relative">
+        <div className="md:w-1/2 mb-8 md:mb-0 md:pr-12 relative ">
           <div className="flex mb-4">
             {[...Array(currentTestimonial.stars)].map((_, i) => (
               <Star key={i} fill="#FFD700" color="#FFD700" size={24} />

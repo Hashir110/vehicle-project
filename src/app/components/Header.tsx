@@ -45,21 +45,19 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Cart Icon */}
-        <div className="relative">
-          <button
-            onClick={() => setIsOpen(true)}
-            className="relative p-2 hover:bg-white/10 rounded-full transition"
-          >
-            <ShoppingCart className="w-6 h-6" />
-            {cart.length > 0 && (
-              <span className="absolute -top-1.5 -right-1.5 bg-red-600 text-[10px] font-bold text-white rounded-full w-5 h-5 flex items-center justify-center shadow-md animate-pulse">
-                {cart.length}
-              </span>
-            )}
-          </button>
-          {isOpen && <ViewCartModal onClose={() => setIsOpen(false)} />}
-        </div>
+      {/* Cart */}
+      <div className="relative flex items-center">
+        <span className="absolute -top-2 -right-2 bg-red-600 text-xs text-white rounded-full w-5 h-5 flex items-center justify-center">
+          {cart.length}
+        </span>
+        {/* Trigger Button */}
+        <button onClick={() => setIsOpen(true)}>
+          <ShoppingCart className="w-6 h-6 text-white hover:cursor-pointer" />
+        </button>
+
+        {/* Modal */}
+        {isOpen && <ViewCartModal onClose={() => setIsOpen(false)} />}
+      </div>
       </div>
     </header>
   );

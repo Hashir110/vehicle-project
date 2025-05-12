@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { toast } from "react-toastify";
@@ -13,11 +13,17 @@ export default function Contact() {
     message: "",
   });
 
-  const isFormValid =
-    form.name.trim() !== "" &&
-    /\S+@\S+\.\S+/.test(form.email) &&
-    form.phone.trim().length === 10 &&
-    form.message.trim().length > 10;
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  useEffect(() => {
+    const valid =
+      form.name.trim() !== "" &&
+      /\S+@\S+\.\S+/.test(form.email) &&
+      form.phone.trim().length <= 15 &&
+      form.message.trim().length > 10;
+
+    setIsFormValid(valid);
+  }, [form]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -47,7 +53,9 @@ export default function Contact() {
       <div className="max-w-4xl mx-auto space-y-12 py-16 px-4">
         {/* Address Card */}
         <div className="bg-gradient-to-br from-white to-gray-50 border border-gray-200 rounded-2xl shadow-md p-8">
-          <h2 className="text-3xl font-extrabold text-gray-800 mb-6">Our Contact Information</h2>
+          <h2 className="text-3xl font-extrabold text-gray-800 mb-6">
+            Our Contact Information
+          </h2>
           <div className="space-y-4 text-gray-700">
             <p className="flex items-start gap-3">
               <FaMapMarkerAlt
@@ -60,7 +68,8 @@ export default function Contact() {
                 }
               />
               <span>
-                <span className="font-semibold">Address:</span> 123 Main Street, Hyderabad, Pakistan
+                <span className="font-semibold">Address:</span> 123 Main Street,
+                Hyderabad, Pakistan
               </span>
             </p>
             <p className="flex items-start gap-3">
@@ -71,7 +80,8 @@ export default function Contact() {
                 }
               />
               <span>
-                <span className="font-semibold">Email:</span> support@vehicleexplorer.com
+                <span className="font-semibold">Email:</span>{" "}
+                support@vehicleexplorer.com
               </span>
             </p>
           </div>
@@ -79,7 +89,9 @@ export default function Contact() {
 
         {/* Contact Form */}
         <div className="bg-gradient-to-br from-white to-gray-50 border border-gray-200 rounded-2xl shadow-md p-8">
-          <h2 className="text-3xl font-extrabold text-gray-800 mb-6">Send Us a Message</h2>
+          <h2 className="text-3xl font-extrabold text-gray-800 mb-6">
+            Send Us a Message
+          </h2>
           <form onSubmit={handleSubmit} className="space-y-6">
             <input
               type="text"

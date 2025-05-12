@@ -5,13 +5,36 @@ import { notFound } from "next/navigation";
 import React from "react";
 import { toast } from "react-toastify";
 
-
-
 const carPackages = {
+  silver: {
+    title: "Silver Package",
+    price: "$14.99",
+    originalPrice: "$24.99",
+    slug: "silver",
+    image:
+      "https://img.freepik.com/free-photo/beautiful-shot-silver-sports-quad-bike-field-front-wooden-fence_181624-19959.jpg",
+    features: [
+      "Vehicle Overview",
+      "Theft Record",
+      "Title Record",
+      "Market Value",
+      "Accident Record",
+      "Salvage",
+      "Impounds",
+      "HQ Truck Images",
+      "Exports",
+      "Sales Listing",
+      "Open Recalls",
+      "Expired Warranties",
+      "Installed Options and Packages",
+      "Title Brand",
+      "Vehicle Specifications",
+    ],
+  },
   gold: {
     title: "Gold Package",
-    price: "$19.99",
-    originalPrice: "$29.99",
+    price: "$14.99",
+    originalPrice: "$24.99",
     slug: "gold",
     image:
       "https://img.freepik.com/free-photo/beautiful-shot-silver-sports-quad-bike-field-front-wooden-fence_181624-19959.jpg",
@@ -33,36 +56,12 @@ const carPackages = {
       "Vehicle Specifications",
     ],
   },
+
   platinum: {
     title: "Platinum Package",
     price: "$39.99",
     originalPrice: "$49.99",
     slug: "platinum",
-    image:
-      "https://img.freepik.com/free-photo/beautiful-shot-silver-sports-quad-bike-field-front-wooden-fence_181624-19959.jpg",
-    features: [
-      "Vehicle Overview",
-      "Theft Record",
-      "Title Record",
-      "Market Value",
-      "Accident Record",
-      "Salvage",
-      "Impounds",
-      "HQ Truck Images",
-      "Exports",
-      "Sales Listing",
-      "Open Recalls",
-      "Expired Warranties",
-      "Installed Options and Packages",
-      "Title Brand",
-      "Vehicle Specifications",
-    ],
-  },
-  diamond: {
-    title: "Diamond Package",
-    price: "$59.99",
-    originalPrice: "$69.99",
-    slug: "diamond",
     image:
       "https://img.freepik.com/free-photo/beautiful-shot-silver-sports-quad-bike-field-front-wooden-fence_181624-19959.jpg",
     features: [

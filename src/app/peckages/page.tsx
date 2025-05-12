@@ -5,8 +5,21 @@ import React from "react";
 
 const packages = [
   {
+    title: "Silver",
+    price: "$14.99",
+    features: [
+      "All-in-One Report",
+      "DMV History",
+      "Recall Status",
+      "Specs",
+      "Accidents",
+      "NMVTIS",
+    ],
+    slug: "silver",
+  },
+  {
     title: "Gold",
-    price: "$19.99",
+    price: "$24.99",
     features: [
       "All-in-One Report",
       "DMV History",
@@ -17,6 +30,7 @@ const packages = [
     ],
     slug: "gold",
   },
+
   {
     title: "Platinum",
     price: "$39.99",
@@ -29,19 +43,6 @@ const packages = [
       "NMVTIS",
     ],
     slug: "platinum",
-  },
-  {
-    title: "Diamond",
-    price: "$59.99",
-    features: [
-      "All-in-One Report",
-      "DMV History",
-      "Recall Status",
-      "Specs",
-      "Accidents",
-      "NMVTIS",
-    ],
-    slug: "diamond",
   },
 ];
 
@@ -63,7 +64,9 @@ export default function Packages() {
       ></section>
 
       <section className="py-16 px-4 bg-gray-100 my-6">
-        <h2 className="text-4xl font-bold mb-6 text-center">Car & Motorcycle Reports Packages</h2>
+        <h2 className="text-4xl font-bold mb-6 text-center">
+          Car & Motorcycle Reports Packages
+        </h2>
 
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {packages.map((pkg, index) => (

@@ -3,8 +3,8 @@ import Image from "next/image";
 export default function About() {
   return (
     <section className="w-full">
-      {/* Top Background Image */}
-      <div className="relative h-[300px] md:h-[500px] mt-4 rounded-lg shadow-lg overflow-hidden">
+      {/* Hero Section */}
+      <div className="relative h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] mt-4 rounded-lg shadow-lg overflow-hidden">
         <Image
           src="/pic for about.jpg"
           alt="Contact Us"
@@ -13,10 +13,7 @@ export default function About() {
           className="object-cover"
           priority
         />
-        {/* Overlay */}
         <div className="absolute inset-0 bg-black/40 z-10" />
-
-        {/* Heading Text */}
         <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4">
           <h1 className="text-white text-4xl md:text-6xl font-extrabold drop-shadow-lg">
             Discover Our Journey
@@ -30,38 +27,38 @@ export default function About() {
       </div>
 
       {/* Content Section */}
-      <div className="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-2 items-center gap-10">
-        {/* Left Side Image */}
+      <div className="max-w-6xl mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch">
+          {/* Text Column */}
+          <div className="flex flex-col justify-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Welcome to The Vehicle{" "}
+              <span className="border-b-2 border-red-800 inline-block pb-1">
+                Explorer
+              </span>
+            </h2>
+            <p className="text-gray-600 text-lg leading-relaxed">
+              We are committed to delivering quality services for cars and bikes.
+              Our premium packages ensure your vehicle gets the best treatment at
+              the most affordable rates. Whether you're looking for a simple
+              check-up or a complete diagnostic, we've got you covered. We are
+              committed to delivering quality services for cars and bikes. Our
+              premium packages ensure your vehicle gets the best treatment at the
+              most affordable rates. Whether you're looking for a simple check-up
+              or a complete diagnostic, we've got you covered.
+            </p>
+          </div>
 
-        {/* Right Side Text */}
-        <div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Welcome to The Vehicle
-            <span className="border-b-2 border-red-800 inline-block pb-1">
-              Explorer
-            </span>
-          </h2>
-
-          <p className="text-gray-600 text-lg leading-relaxed">
-            We are committed to delivering quality services for cars and bikes.
-            Our premium packages ensure your vehicle gets the best treatment at
-            the most affordable rates. Whether you're looking for a simple
-            check-up or a complete diagnostic, we've got you covered. We are
-            committed to delivering quality services for cars and bikes. Our
-            premium packages ensure your vehicle gets the best treatment at the
-            most affordable rates. Whether you're looking for a simple check-up
-            or a complete diagnostic, we've got you covered.
-          </p>
-        </div>
-
-        <div>
-          <Image
-            src={"/report pic-2.jpg"}
-            alt="About Us"
-            width={500}
-            height={500}
-            className=" ml-30 rounded-lg shadow-lg object-cover"
-          />
+          {/* Image Column */}
+          <div className="flex items-center justify-center">
+            <Image
+              src="/report pic-2.jpg"
+              alt="About Us"
+              width={500}
+              height={500}
+              className="w-full max-w-[500px] rounded-lg shadow-lg object-cover"
+            />
+          </div>
         </div>
       </div>
     </section>

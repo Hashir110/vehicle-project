@@ -4,13 +4,13 @@ import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
 export default function Footer() {
   return (
     <footer className="bg-gray-100 text-black">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 py-6">
-        {/* Logo */}
-        <div className="flex flex-col items-start">
-          <h1 className="text-3xl font-bold mb-3 tracking-wider">
-            Vehical Explorer
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 py-8">
+        {/* Logo Section */}
+        <div className="flex flex-col items-start sm:col-span-2 lg:col-span-1">
+          <h1 className="text-2xl sm:text-3xl font-bold mb-3 tracking-wider">
+            Vehicle Explorer
           </h1>
-          <p className="mt-4">
+          <p className="mt-2 sm:mt-4 text-sm sm:text-base">
             At Vehicle Explorer Reporter, We are proud of our dedication to
             quality and accuracy. Our skilled inspectors go thoroughly over each
             component of the automobile.
@@ -18,8 +18,8 @@ export default function Footer() {
         </div>
 
         {/* Useful Links */}
-        <div>
-          <h4 className="font-bold text-2xl mb-4">Useful Links</h4>
+        <div className="mt-4 sm:mt-0">
+          <h4 className="font-bold text-xl sm:text-2xl mb-3 sm:mb-4">Useful Links</h4>
           <ul className="space-y-2">
             <li className="hover:text-red-600">
               <Link href="/">Home</Link>
@@ -34,11 +34,11 @@ export default function Footer() {
         </div>
 
         {/* Policies */}
-        <div>
-          <h4 className="font-bold text-2xl mb-4">Our Policies</h4>
+        <div className="mt-4 sm:mt-0">
+          <h4 className="font-bold text-xl sm:text-2xl mb-3 sm:mb-4">Our Policies</h4>
           <ul className="space-y-2">
             <li className="hover:text-red-600">
-              <Link  href="/privacy_policy">Privacy Policy</Link>
+              <Link href="/privacy_policy">Privacy Policy</Link>
             </li>
             <li className="hover:text-red-600">
               <Link href="/refund_policy">Refund Policy</Link>
@@ -50,18 +50,18 @@ export default function Footer() {
         </div>
 
         {/* Contact Info */}
-        <div>
-          <h4 className="font-bold text-2xl mb-4">Our Hours</h4>
-          <p className="text-red-700">24 Hours Available</p>
-          <p className="text-red-700 mb-4">Monday till Sunday</p>
-          <h4 className="font-bold text-2xl mb-2">Our Email</h4>
-          <p className="text-red-700">developer@gmail.com</p>
+        <div className="mt-4 sm:mt-0">
+          <h4 className="font-bold text-xl sm:text-2xl mb-3 sm:mb-4">Our Hours</h4>
+          <p className="text-red-700 text-sm sm:text-base">24 Hours Available</p>
+          <p className="text-red-700 text-sm sm:text-base mb-4">Monday till Sunday</p>
+          <h4 className="font-bold text-xl sm:text-2xl mb-3 sm:mb-4">Our Email</h4>
+          <p className="text-red-700 text-sm sm:text-base break-all">developer@gmail.com</p>
         </div>
 
-        {/* Social Media */}
-        <div>
-          <h4 className="font-bold text-2xl mb-4">Follow Us</h4>
-          <ul className="flex space-x-4 text-2xl text-gray-700">
+        {/* Social Media - Maintains original position */}
+        <div className="sm:col-span-2 lg:col-span-4 mt-6 sm:mt-8">
+          <h4 className="font-bold text-xl sm:text-2xl mb-4">Follow Us</h4>
+          <ul className="flex space-x-4 text-xl sm:text-2xl text-gray-700 justify-center sm:justify-start">
             <li>
               <Link href="https://www.facebook.com/" target="_blank">
                 <FaFacebook className="hover:text-blue-600 transition duration-200" />
@@ -87,7 +87,7 @@ export default function Footer() {
       </div>
 
       {/* Copyright */}
-      <div className="mt-12 text-center bg-[#0f172a] text-white py-4">
+      <div className="mt-8 sm:mt-12 text-center bg-[#0f172a] text-white py-4 text-sm sm:text-base">
         &copy; {new Date().getFullYear()} The Vehicle Explorer. All rights
         reserved.
       </div>

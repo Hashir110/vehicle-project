@@ -102,7 +102,7 @@ export default function Footer() {
 
       {/* Copyright */}
       <div className="mt-6 md:mt-12 text-center bg-[#0f172a] text-white py-4 px-4 text-sm md:text-base">
-        &copy; {new Date().getFullYear()} Vehicle Explorer. All rights reserveds.
+        &copy; {new Date().getFullYear()} Vehicle Explorer. All rights reserved.
       </div>
     </footer>
   );

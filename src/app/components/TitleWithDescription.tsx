@@ -7,22 +7,23 @@ export default function TitleWithDescription() {
       <div className="px-6 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
         {/* Text Section */}
         <div className="w-full md:w-1/2 text-left">
-          <h4 className="text-red-700 font-semibold mb-2 text-2xl">Who We Are?</h4>
+          <h4 className="text-red-700 font-semibold mb-2 text-2xl">
+            Who We Are?
+          </h4>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Get a Verified History Report!
           </h2>
           <p className="text-gray-700 mb-6 text-lg">
-            At the vehicle explorer where we provide comprehensive insights
-            into the history and background of vehicles. Whether you’re
-            considering buying a pre-owned car or simply researching the
-            origins of a vehicle, our detailed reports offer valuable
-            information about previous ownership, accident records, service
-            history, and more.
+            At the vehicle explorer where we provide comprehensive insights into
+            the history and background of vehicles. Whether you’re considering
+            buying a pre-owned car or simply researching the origins of a
+            vehicle, our detailed reports offer valuable information about
+            previous ownership, accident records, service history, and more.
           </p>
           <Link href="/about">
-          <button className="bg-red-700 hover:bg-red-800 text-white px-6 py-3 rounded-md font-medium">
-            Know More about us
-          </button>
+            <button className="hover:bg-red-800 hover:cursor-pointer bg-red-600 text-white px-6 py-3 rounded-md font-medium">
+              Know More about us
+            </button>
           </Link>
         </div>
 
@@ -30,7 +31,7 @@ export default function TitleWithDescription() {
         <div className="w-full md:w-1/2 flex justify-end">
           <div className="relative w-full h-[300px] md:h-[400px] rounded-lg overflow-hidden shadow-lg">
             <Image
-              src='/report-with 2 men.jpg'
+              src="/report-with 2 men.jpg"
               alt="Car Dealership"
               fill
               className="object-cover object-center"

@@ -58,7 +58,7 @@ export default function Packages() {
     <div className="w-full">
       <div className="relative h-[300px] md:h-[500px] mt-4 rounded-lg shadow-lg overflow-hidden">
         <Image
-          src="/heavy-bike.jpg"
+          src="/car&bike.avif"
           alt="Contact Us"
           fill
           quality={100}

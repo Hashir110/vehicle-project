@@ -12,8 +12,7 @@ const carPackages = {
     price: 14.99,
     originalPrice: 24.99,
     slug: "silver",
-    image:
-      '/heavy-bike.jpg',
+    image: "/car&bike.avif",
     features: [
       "Vehicle Overview",
       "Theft Record",
@@ -37,8 +36,7 @@ const carPackages = {
     price: 14.99,
     originalPrice: 24.99,
     slug: "gold",
-    image:
-      '/heavy-bike.jpg',
+    image: "/car&bike.avif",
     features: [
       "Vehicle Overview",
       "Theft Record",
@@ -63,8 +61,8 @@ const carPackages = {
     price: 39.99,
     originalPrice: 49.99,
     slug: "platinum",
-    image:
-      '/heavy-bike.jpg',
+    image: "/car&bike.avif",
+
     features: [
       "Vehicle Overview",
       "Theft Record",
@@ -125,14 +123,14 @@ export default function CarPackagePage({
         <span className="absolute top-5 left-2 bg-yellow-500 text-white text-xs px-2 py-1 rounded-full z-10">
           Sale!
         </span>
-        <div className="relative h-[450px] md:h-[650px] mt-4 rounded-lg shadow-lg overflow-hidden">
+        <div className="relative h-[400px] md:h-[500px] md:mb-12 rounded-lg shadow-lg overflow-hidden">
           <Image
             src={pkgData.image}
             alt={pkgData.title}
            fill
-    quality={100}
-    className="object-cover"
-    priority 
+            quality={100}
+            className="object-cover"
+            priority
           />
         </div>
       </div>

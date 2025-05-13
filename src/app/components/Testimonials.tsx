@@ -92,13 +92,13 @@ const AnimatedTestimonials = () => {
           <div className="mt-6 flex space-x-4">
             <button
               onClick={prevTestimonial}
-              className="bg-gray-800 hover:bg-gray-700 p-2 rounded-full"
+              className="bg-gray-800 hover:bg-gray-700 hover:cursor-pointer p-2 rounded-full"
             >
               <ChevronLeft size={20} />
             </button>
             <button
               onClick={nextTestimonial}
-              className="bg-gray-800 hover:bg-gray-700 p-2 rounded-full"
+              className="bg-gray-800 hover:bg-gray-700 hover:cursor-pointer p-2 rounded-full"
             >
               <ChevronRight size={20} />
             </button>

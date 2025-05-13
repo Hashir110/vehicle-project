@@ -75,7 +75,7 @@ export default function HeroSection() {
 
           <button
             type="submit"
-            className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-md w-full"
+            className="bg-red-600 hover:bg-red-800 hover:cursor-pointer text-white font-semibold py-2 px-4 rounded-md w-full"
           >
             Submit
           </button>

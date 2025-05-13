@@ -23,10 +23,10 @@ export default function RootLayout({
   src="https://www.paypal.com/sdk/js?client-id=AdJq94sV-y0iXYIkLUiIHVxfvD7BhvAf-XGMaRS_olKSrj4lON1jIANscPFI2FKPhJx3HPqog1Q84-re&components=buttons&disable-funding=paylater,venmo"
   strategy="beforeInteractive"
 /> */}
-<Script
-  src="https://www.paypal.com/sdk/js?client-id=AdJq94sV-y0iXYIkLUiIHVxfvD7BhvAf-XGMaRS_olKSrj4lON1jIANscPFI2FKPhJx3HPqog1Q84-re"
-  strategy="beforeInteractive"
-/>
+      <Script
+        src="https://www.paypal.com/sdk/js?client-id=AdJq94sV-y0iXYIkLUiIHVxfvD7BhvAf-XGMaRS_olKSrj4lON1jIANscPFI2FKPhJx3HPqog1Q84-re"
+        strategy="beforeInteractive"
+      />
       </head>
       <body className="bg-white text-black">
         <CartProvider>

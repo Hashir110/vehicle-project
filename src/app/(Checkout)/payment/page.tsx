@@ -1,11 +1,18 @@
-'use client';
-import React from 'react';
-import { ArrowRight, Shield } from 'lucide-react';
-import Link from 'next/link';
-import Paypal from '@/app/components/Paypal';
-import Script from 'next/script';
+"use client";
+import React from "react";
+import { ArrowRight, Shield } from "lucide-react";
+import Link from "next/link";
+import Paypal from "@/app/components/Paypal";
+import { useCart } from "@/context/CartContext";
 
 const Page = () => {
+  const { cart } = useCart();
+
+  const calculateTotalAmount = () => {
+    return cart.reduce((total, item) => total + item.price  , 0)
+  }
+
+  const totalAmount  = calculateTotalAmount()
   return (
     <div className="min-h-screen bg-[#f5f7fa] font-sans text-gray-800">
       {/* Header */}
@@ -13,7 +20,9 @@ const Page = () => {
         <h1 className="text-4xl font-semibold tracking-wide">Checkout</h1>
         <div className="flex justify-center items-center gap-2 pt-4 text-lg text-gray-300">
           <Link href="/billing-address">
-            <span className="font-medium text-gray-400">Billing Information</span>
+            <span className="font-medium text-gray-400">
+              Billing Information
+            </span>
           </Link>
           <ArrowRight className="w-5 h-5" />
           <span className="text-white font-bold">Payment</span>
@@ -29,27 +38,39 @@ const Page = () => {
               Order Summary
             </h2>
             <div className="text-sm text-gray-600 mb-6">
-              <p>
-                <span className="text-gray-900 font-medium">Product:</span>{' '}
-                Tesla Model Y Premium Interior Package
-              </p>
-            </div>
-            <div className="space-y-4 mb-6">
-              <div className="flex justify-between text-base">
-                <span>Subtotal</span>
-                <span className="text-gray-900 font-medium">1,434</span>
-              </div>
-              <div className="flex justify-between text-base">
-                <span>Total</span>
-                <span className="text-blue-700 font-bold text-lg">3,434</span>
-              </div>
+              {cart.map((item) => (
+                <div key={item.id}>
+                  <div className="flex w-full justify-between">
+                    <span className="text-gray-900 font-medium">Product:</span>
+                    <p className="text-2xl font-bold tracking-wide text-gray-800 mb-4">
+                      {item.title.toUpperCase()}
+                    </p>
+                  </div>
+                  <div className="space-y-4 mb-6">
+                    <div className="flex justify-between text-base">
+                      <span>Subtotal</span>
+                      <span className="text-gray-900 font-medium">
+                        ${item.price}
+                      </span>
+                    </div>
+                  
+                  </div>
+                </div>
+              ))}
+                <div className="flex justify-between text-base">
+                      <span>Total</span>
+                      <span className="text-blue-700 font-bold text-lg">
+                        ${totalAmount.toFixed(2)}
+                      </span>
+                    </div>
             </div>
             <div className="bg-blue-50 border border-blue-100 rounded-lg p-4 text-sm text-blue-800">
               <div className="flex items-start gap-3">
                 <Shield className="w-5 h-5 mt-0.5" />
                 <p>
-                  Your personal data will be used to process your order, support your experience,
-                  and for other purposes described in our privacy policy.
+                  Your personal data will be used to process your order, support
+                  your experience, and for other purposes described in our
+                  privacy policy.
                 </p>
               </div>
             </div>
@@ -57,12 +78,13 @@ const Page = () => {
         </div>
         <div className="w-full md:w-1/2 bg-gray-100 py-10 px-6 rounded-2xl shadow-inner">
           <div className="bg-white shadow-lg rounded-2xl p-6">
-            <h3 className="text-md font-semibold mb-4 text-gray-800">Pay with PayPal</h3>
+            <h3 className="text-md font-semibold mb-4 text-gray-800">
+              Pay with PayPal
+            </h3>
             <Paypal />
           </div>
         </div>
       </div>
-
     </div>
   );
 };

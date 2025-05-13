@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
 
@@ -54,14 +55,31 @@ export default function Packages() {
   };
 
   return (
-    <>
-      <section
-        className="w-full h-[80vh] bg-center bg-no-repeat bg-cover my-6"
-        style={{
-          backgroundImage:
-            "url('https://img.freepik.com/free-photo/beautiful-shot-silver-sports-quad-bike-field-front-wooden-fence_181624-19959.jpg?t=st=1746759943~exp=1746763543~hmac=446c001f38ae4b6bf754a27377fac07cd0facac5f2376538a29a486ab2fddd94&w=996')",
-        }}
-      ></section>
+    <div className="w-full">
+      <div className="relative h-[300px] md:h-[500px] mt-4 rounded-lg shadow-lg overflow-hidden">
+        <Image
+          src="/heavy-bike.jpg"
+          alt="Contact Us"
+          fill
+          quality={100}
+          className="object-cover"
+          priority
+        />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/40 z-10" />
+
+        {/* Heading Text */}
+        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4">
+          <h1 className="text-white text-4xl md:text-6xl font-extrabold drop-shadow-lg">
+            Choose the Right Report Package
+          </h1>
+          <p className="text-white text-lg md:text-2xl mt-4 max-w-xl drop-shadow-md">
+            Whether you're buying or selling, our packages offer detailed,
+            reliable vehicle history insights — tailored to your needs and
+            budget.
+          </p>
+        </div>
+      </div>
 
       <section className="py-16 px-4 bg-gray-100 my-6">
         <h2 className="text-4xl font-bold mb-6 text-center">
@@ -98,6 +116,6 @@ export default function Packages() {
           ))}
         </div>
       </section>
-    </>
+    </div>
   );
 }

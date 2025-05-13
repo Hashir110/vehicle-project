@@ -1,19 +1,15 @@
 import Link from "next/link";
 import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
 
-
 export default function Footer() {
   return (
     <footer className="bg-gray-100 text-black">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 py-6">
         {/* Logo */}
         <div className="flex flex-col items-start">
-          <img
-            src="/car-check-logo-symbol-icon-template_166742-4826.avif"
-            alt="The Vehicle Explorer Logo"
-            width={150}
-            height={150}
-          />
+          <h1 className="text-3xl font-bold mb-3 tracking-wider">
+            Vehical Explorer
+          </h1>
           <p className="mt-4">
             At Vehicle Explorer Reporter, We are proud of our dedication to
             quality and accuracy. Our skilled inspectors go thoroughly over each
@@ -23,15 +19,15 @@ export default function Footer() {
 
         {/* Useful Links */}
         <div>
-          <h4 className="font-bold mb-4">Useful Links</h4>
+          <h4 className="font-bold text-2xl mb-4">Useful Links</h4>
           <ul className="space-y-2">
-            <li>
+            <li className="hover:text-red-600">
               <Link href="/">Home</Link>
             </li>
-            <li>
+            <li className="hover:text-red-600">
               <Link href="/about">About Us</Link>
             </li>
-            <li>
+            <li className="hover:text-red-600">
               <Link href="/contact">Contact Us</Link>
             </li>
           </ul>
@@ -39,15 +35,15 @@ export default function Footer() {
 
         {/* Policies */}
         <div>
-          <h4 className="font-bold mb-4">Our Policies</h4>
+          <h4 className="font-bold text-2xl mb-4">Our Policies</h4>
           <ul className="space-y-2">
-            <li>
-              <Link href="/privacy_policy">Privacy Policy</Link>
+            <li className="hover:text-red-600">
+              <Link  href="/privacy_policy">Privacy Policy</Link>
             </li>
-            <li>
+            <li className="hover:text-red-600">
               <Link href="/refund_policy">Refund Policy</Link>
             </li>
-            <li>
+            <li className="hover:text-red-600">
               <Link href="/terms_condition">Terms & Conditions</Link>
             </li>
           </ul>
@@ -55,16 +51,16 @@ export default function Footer() {
 
         {/* Contact Info */}
         <div>
-          <h4 className="font-bold mb-4">Our Hours</h4>
+          <h4 className="font-bold text-2xl mb-4">Our Hours</h4>
           <p className="text-red-700">24 Hours Available</p>
           <p className="text-red-700 mb-4">Monday till Sunday</p>
-          <h4 className="font-bold mb-2">Our Email</h4>
+          <h4 className="font-bold text-2xl mb-2">Our Email</h4>
           <p className="text-red-700">developer@gmail.com</p>
         </div>
 
         {/* Social Media */}
         <div>
-          <h4 className="font-bold mb-4">Follow Us</h4>
+          <h4 className="font-bold text-2xl mb-4">Follow Us</h4>
           <ul className="flex space-x-4 text-2xl text-gray-700">
             <li>
               <Link href="https://www.facebook.com/" target="_blank">

@@ -4,7 +4,7 @@ import { createContext, useContext, useState, useEffect } from "react";
 type CartItem = {
   id: string;
   title: string;
-  price: string;
+  price: number;
 };
 
 type CartContextType = {

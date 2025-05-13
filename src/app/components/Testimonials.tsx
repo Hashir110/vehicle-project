@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Star, ChevronLeft, ChevronRight, Check } from "lucide-react";
-
+import Image from "next/image";
 const testimonials = [
   {
     id: 1,
@@ -55,10 +55,12 @@ const AnimatedTestimonials = () => {
     <div className="w-full bg-black text-white">
       {/* Header Image */}
       <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px]">
-        <img
-          src="https://img.freepik.com/free-photo/night-drive-supercar_23-2151955623.jpg?t=st=1746919599~exp=1746923199~hmac=9bd969aafc22fa6c3b154b38441f1ce134ad13da0b25cbf7ec7ab5aa8d606589&w=826"
-          alt="Car Service"
-          className="absolute inset-0 w-full h-full object-cover"
+        <Image
+        src='/pexels-broderick-armbrister-1186919-6462662.jpg'
+        alt="Car Image"
+        fill
+        quality={100}
+        className="object-cover"
         />
       </div>
 

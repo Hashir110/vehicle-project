@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
-
+import {useCart} from '@/context/CartContext'; 
 declare global {
   interface Window {
     paypal: any;
@@ -8,6 +8,8 @@ declare global {
 }
 
 const PayPalButton = () => {
+  const {cart} = useCart();
+ const totalAmount =  cart.reduce((total, item) =>  total + item.price  , 0)
   useEffect(() => {
     if (!window.paypal) return;
 
@@ -27,7 +29,7 @@ const PayPalButton = () => {
           purchase_units: [
             {
               amount: {
-                value: "10.00", 
+                value: totalAmount
               },
             },
           ],

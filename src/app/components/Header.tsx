@@ -12,15 +12,10 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="bg-black text-white px-6 py-4 shadow-md">
+    <header className="bg-black text-white px-6 py-6 shadow-md">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
-          <img
-            src="/car-check-logo-symbol-icon-template_166742-4826.avif"
-            alt="Vehicle Explorer Logo"
-            className="w-12 h-12 rounded-full object-cover"
-          />
           <span className="text-xl font-bold hidden sm:block">Vehicle Explorer</span>
         </Link>
 

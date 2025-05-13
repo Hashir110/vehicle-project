@@ -1,14 +1,33 @@
+import Image from "next/image";
+
 export default function About() {
   return (
     <section className="w-full">
       {/* Top Background Image */}
-      <div
-        className="h-[300px] md:h-[400px] bg-cover bg-center mt-4"
-        style={{
-          backgroundImage:
-            "url('https://img.freepik.com/free-photo/cyberpunk-urban-scenery-with-car_23-2150712268.jpg?t=st=1746878292~exp=1746881892~hmac=5cd60eb84c3a4d55c2573859746d1ae697ef3b7a324550dffe42653739b4dde4&w=1380')",
-        }}
-      ></div>
+      <div className="relative h-[300px] md:h-[500px] mt-4 rounded-lg shadow-lg overflow-hidden">
+        <Image
+          src="/pic for about.jpg"
+          alt="Contact Us"
+          fill
+          quality={100}
+          className="object-cover"
+          priority
+        />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/40 z-10" />
+
+        {/* Heading Text */}
+        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4">
+          <h1 className="text-white text-4xl md:text-6xl font-extrabold drop-shadow-lg">
+            Discover Our Journey
+          </h1>
+          <p className="text-white text-lg md:text-2xl mt-4 max-w-xl drop-shadow-md">
+            From passion to purpose, we're driven to bring transparency and
+            trust to every vehicle purchase. Learn more about who we are and why
+            we do what we do.
+          </p>
+        </div>
+      </div>
 
       {/* Content Section */}
       <div className="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-2 items-center gap-10">
@@ -36,10 +55,12 @@ export default function About() {
         </div>
 
         <div>
-          <img
-            src="https://img.freepik.com/premium-photo/midsection-man-pointing-car-while-agent-holding-pen-clipboard-crouching-outdoors_1048944-2256038.jpg?w=996"
-            alt="About"
-            className="rounded-2xl shadow-lg"
+          <Image
+            src={"/report pic-2.jpg"}
+            alt="About Us"
+            width={500}
+            height={500}
+            className=" ml-30 rounded-lg shadow-lg object-cover"
           />
         </div>
       </div>

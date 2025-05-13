@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 
@@ -19,13 +20,16 @@ const CounterComponent = () => {
     <section
       ref={ref}
       className="relative py-20 bg-cover bg-center bg-no-repeat"
-      style={{
-        backgroundImage:
-          "url('https://img.freepik.com/free-photo/speed-machine_23-2151955603.jpg?t=st=1746638850~exp=1746642450~hmac=aea325c447cdd47d7cd40712a583eb33a1687b3d3331a563224b3848a37ce5b8&w=1060')",
-      }}
     >
+      <Image 
+      src='/pic for counter.jpg'
+      alt='Counter background'
+      fill
+      quality={100}
+      className="absolute inset-0 object-cover object-center "
+      /> 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/60"></div>
+      <div className="absolute inset-0 bg-black/30"></div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center grid grid-cols-1 md:grid-cols-3 gap-8 text-white">

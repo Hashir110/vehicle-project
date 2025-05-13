@@ -31,9 +31,9 @@ const Partners = () => {
       {/* Center Large Image */}
       <div className="mt-12 flex justify-center">
         <img
-          src="/map.png"
+          src="/map (2).png"
           alt="World Map"
-          className="max-w-full h-auto"
+          className="max-w-full h-[600px] object-cover"
         />
       </div>
     </section>

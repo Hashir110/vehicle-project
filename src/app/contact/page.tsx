@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
@@ -42,13 +43,29 @@ export default function Contact() {
   return (
     <section className="w-full">
       {/* Top Image */}
-      <div
-        className="h-[300px] md:h-[400px] bg-cover bg-center mt-4 rounded-lg shadow-lg"
-        style={{
-          backgroundImage:
-            "url('https://img.freepik.com/free-photo/cyberpunk-urban-scenery-with-car_23-2150712268.jpg?t=st=1746878292~exp=1746881892~hmac=5cd60eb84c3a4d55c2573859746d1ae697ef3b7a324550dffe42653739b4dde4&w=1380')",
-        }}
-      ></div>
+    <div className="relative h-[300px] md:h-[500px] mt-4 rounded-lg shadow-lg overflow-hidden">
+  <Image
+    src="/pic for contact.jpg"
+    alt="Contact Us"
+    fill
+    quality={100}
+    className="object-cover"
+    priority
+  />
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-black/40 z-10" />
+  
+  {/* Heading Text */}
+  <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4">
+    <h1 className="text-white text-4xl md:text-6xl font-extrabold drop-shadow-lg">
+      Get in Touch With Us
+    </h1>
+    <p className="text-white text-lg md:text-2xl mt-4 max-w-xl drop-shadow-md">
+      We're here to answer your questions and assist you with anything you need.
+    </p>
+  </div>
+</div>
+
 
       <div className="max-w-4xl mx-auto space-y-12 py-16 px-4">
         {/* Address Card */}

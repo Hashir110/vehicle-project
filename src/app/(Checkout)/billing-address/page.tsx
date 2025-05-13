@@ -4,7 +4,6 @@ import React, { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { ArrowRight } from "lucide-react";
-import Link from "next/link";
 import emailjs from "@emailjs/browser"; // ✅ use the latest version
 import { toast } from "react-toastify";
 
@@ -88,9 +87,7 @@ const Page = () => {
         <div className="flex justify-center items-center pt-4 text-lg">
           <h3 className="font-semibold">Billing Information</h3>
           <ArrowRight className="w-4 h-4 mx-2" />
-          <Link href="/payment">
-            <h3 className="font-light text-gray-200">Payment</h3>
-          </Link>
+            <h3 className="font-medium text-gray-400">Payment</h3>
         </div>
       </div>
 
@@ -251,7 +248,7 @@ const Page = () => {
             type="submit"
             className={`w-full py-4 rounded-lg text-white text-lg font-semibold transition-all duration-300 shadow-md ${
               isFormValid
-                ? "bg-yellow-500 hover:bg-yellow-600 hover:shadow-lg cursor-pointer"
+                ? "bg-orange-500 hover:bg-orange-600 hover:shadow-lg cursor-pointer"
                 : "bg-gray-400 cursor-not-allowed"
             }`}
             disabled={!isFormValid}

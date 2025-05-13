@@ -2,6 +2,7 @@
 
 import { useCart } from "@/context/CartContext";
 import { X } from "lucide-react";
+import Link from "next/link";
 
 export default function ViewCartModal({ onClose }: { onClose: () => void }) {
   const { cart, removeFromCart } = useCart();
@@ -48,12 +49,21 @@ export default function ViewCartModal({ onClose }: { onClose: () => void }) {
 
         {/* Footer */}
         <div className="mt-6">
-          <a
-            href="/billing-address"
-            className="block w-full text-center bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-2 rounded"
-          >
-            Checkout
-          </a>
+          {cart.length > 0 ? (
+            <Link
+              href="/billing-address"
+              className="block w-full text-center bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-2 rounded"
+            >
+              Checkout
+            </Link>
+          ) : (
+            <Link
+              href=""
+              className="block w-full text-center bg-gray-500  text-black font-semibold py-2 rounded cursor-not-allowed"
+            >
+              Checkout
+            </Link>
+          )}
         </div>
       </div>
     </div>

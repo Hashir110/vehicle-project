@@ -92,7 +92,7 @@ export default function Packages() {
               key={index}
               className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition duration-300"
             >
-              <h3 className="text-2xl font-semibold text-yellow-500 mb-2">
+              <h3 className="text-2xl font-semibold text-red-500 mb-2">
                 {pkg.title}
               </h3>
               <p className="text-3xl font-bold text-gray-800 mb-4">
@@ -108,7 +108,7 @@ export default function Packages() {
               </ul>
               <button
                 onClick={() => handlePackageClick(pkg.slug)}
-                className="bg-yellow-500 hover:bg-yellow-600 hover:cursor-pointer text-black font-semibold w-full py-2 rounded-full"
+                className="bg-red-500 hover:bg-red-700 hover:cursor-pointer text-white font-semibold w-full py-2 rounded-full"
               >
                 Get your report
               </button>

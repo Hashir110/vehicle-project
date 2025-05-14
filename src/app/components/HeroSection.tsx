@@ -15,6 +15,7 @@ export default function HeroSection() {
 
     if (!vehicleNumber.trim()) {
       toast("Vehicle number is required");
+      setError('');
       return;
     }
 
@@ -52,7 +53,7 @@ export default function HeroSection() {
           The History Of Your Car.
         </h2>
         <p className="text-lg mb-4">
-          Let’s Verify Your Car History is a global service that aims to enhance
+          Let&apos;s Verify Your Car History is a global service that aims to enhance
           transparency in the used car market and promote road safety on a
           global scale by providing comprehensive vehicle histories.
         </p>
@@ -75,7 +76,7 @@ export default function HeroSection() {
 
           <button
             type="submit"
-            className="bg-red-600 hover:bg-red-800 hover:cursor-pointer text-white font-semibold py-2 px-4 rounded-md w-full"
+            className="bg-red-600 hover:bg-red-700 hover:cursor-pointer text-white font-semibold py-2 px-4 rounded-md w-full"
           >
             Submit
           </button>

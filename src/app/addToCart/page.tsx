@@ -1,5 +1,5 @@
+'use client';
 import { useCart } from "@/context/CartContext";
-
 
 export default function ViewCartPage() {
   const { cart, removeFromCart } = useCart();

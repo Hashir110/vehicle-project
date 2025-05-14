@@ -1,6 +1,5 @@
 import React from "react";
 
-
 const Partners = () => {
   return (
     <section className="py-6 bg-white text-center">

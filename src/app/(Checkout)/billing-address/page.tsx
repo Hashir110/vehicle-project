@@ -22,7 +22,6 @@ const Page = () => {
   const [isFormValid, setIsFormValid] = useState(false);
   const router = useRouter();
 
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     const updatedFormData = { ...formData, [name]: value };
@@ -46,9 +45,6 @@ const Page = () => {
 
     setIsFormValid(isValid);
   };
-  
-  
-  
 
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
@@ -75,7 +71,6 @@ const Page = () => {
         });
         router.push("/payment");
       });
-      
 
     return false;
   };
@@ -87,7 +82,7 @@ const Page = () => {
         <div className="flex justify-center items-center pt-4 text-lg">
           <h3 className="font-semibold">Billing Information</h3>
           <ArrowRight className="w-4 h-4 mx-2" />
-            <h3 className="font-medium text-gray-400">Payment</h3>
+          <h3 className="font-medium text-gray-400">Payment</h3>
         </div>
       </div>
 
@@ -112,7 +107,7 @@ const Page = () => {
                 placeholder="Enter your first name"
                 required
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-red-400"
+                className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-red-600"
               />
             </div>
             <div className="w-full md:w-1/2">
@@ -129,7 +124,7 @@ const Page = () => {
                 placeholder="Enter your last name"
                 required
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-red-400"
+                className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-red-600"
               />
             </div>
           </div>
@@ -148,7 +143,7 @@ const Page = () => {
               placeholder="Enter your email"
               required
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-red-400"
+              className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-red-600"
             />
           </div>
 
@@ -166,7 +161,7 @@ const Page = () => {
               placeholder="123 Main St, Apartment 4B"
               required
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-red-400"
+              className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-red-600"
             />
           </div>
 
@@ -185,7 +180,7 @@ const Page = () => {
                 placeholder="Enter your city"
                 required
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-red-400"
+                className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-red-600"
               />
             </div>
             <div className="w-full md:w-1/2">
@@ -202,7 +197,7 @@ const Page = () => {
                 placeholder="Enter your country"
                 required
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-red-400"
+                className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-red-600"
               />
             </div>
           </div>
@@ -222,7 +217,7 @@ const Page = () => {
                 placeholder="Enter your ZipCode"
                 required
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-red-400"
+                className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-red-600"
               />
             </div>
             <div className="w-full md:w-1/2">
@@ -239,7 +234,7 @@ const Page = () => {
                 placeholder="Enter your Phone Number"
                 required
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-red-400"
+                className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-red-600"
               />
             </div>
           </div>
@@ -248,7 +243,7 @@ const Page = () => {
             type="submit"
             className={`w-full py-4 rounded-lg text-white text-lg font-semibold transition-all duration-300 shadow-md ${
               isFormValid
-                ? "bg-orange-500 hover:bg-orange-600 hover:shadow-lg cursor-pointer"
+                ? "bg-red-600 hover:bg-red-700 hover:shadow-lg cursor-pointer"
                 : "bg-gray-400 cursor-not-allowed"
             }`}
             disabled={!isFormValid}

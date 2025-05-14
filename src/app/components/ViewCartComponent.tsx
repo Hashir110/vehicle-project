@@ -52,7 +52,7 @@ export default function ViewCartModal({ onClose }: { onClose: () => void }) {
           {cart.length > 0 ? (
             <Link
               href="/billing-address"
-              className="block w-full text-center bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-2 rounded"
+              className="block w-full text-center bg-red-600 hover:bg-red-700 text-black font-semibold py-2 rounded"
             >
               Checkout
             </Link>

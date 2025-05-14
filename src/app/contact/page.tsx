@@ -59,7 +59,8 @@ export default function Contact() {
             Get in Touch With Us
           </h1>
           <p className="text-white text-md sm:text-lg md:text-xl mt-4 max-w-2xl drop-shadow-md">
-            We're here to answer your questions and assist you with anything you need.
+            We're here to answer your questions and assist you with anything you
+            need.
           </p>
         </div>
       </div>
@@ -75,7 +76,7 @@ export default function Contact() {
             <div className="space-y-5 text-gray-700 text-base sm:text-lg">
               <p className="flex items-start gap-3">
                 <FaMapMarkerAlt
-                  className="text-yellow-500 text-lg cursor-pointer mt-1"
+                  className="text-red-600 text-lg cursor-pointer mt-1"
                   onClick={() =>
                     window.open(
                       "https://www.google.com/maps/search/?api=1&query=123+Main+Street,+Hyderabad,+Pakistan",
@@ -84,18 +85,20 @@ export default function Contact() {
                   }
                 />
                 <span>
-                  <span className="font-semibold">Address:</span> 123 Main Street, Hyderabad, Pakistan
+                  <span className="font-semibold">Address:</span> 123 Main
+                  Street, Hyderabad, Pakistan
                 </span>
               </p>
               <p className="flex items-start gap-3">
                 <MdEmail
-                  className="text-yellow-500 text-lg cursor-pointer mt-1"
+                  className="text-red-600 text-lg cursor-pointer mt-1"
                   onClick={() =>
                     window.open("https://workspace.google.com/gmail/", "_blank")
                   }
                 />
                 <span>
-                  <span className="font-semibold">Email:</span> support@vehicleexplorer.com
+                  <span className="font-semibold">Email:</span>{" "}
+                  support@vehicleexplorer.com
                 </span>
               </p>
             </div>
@@ -106,12 +109,15 @@ export default function Contact() {
             <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-800 mb-6">
               Send Us a Message
             </h2>
-            <form onSubmit={handleSubmit} className="space-y-6 text-base sm:text-lg">
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-6 text-base sm:text-lg"
+            >
               <input
                 type="text"
                 name="name"
                 placeholder="John Doe"
-                className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:outline-none"
+                className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:outline-none"
                 value={form.name}
                 onChange={handleChange}
                 required
@@ -120,7 +126,7 @@ export default function Contact() {
                 type="email"
                 name="email"
                 placeholder="johndoe@example.com"
-                className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:outline-none"
+                className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:outline-none"
                 value={form.email}
                 onChange={handleChange}
                 required
@@ -129,7 +135,7 @@ export default function Contact() {
                 type="tel"
                 name="phone"
                 placeholder="1234567890"
-                className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:outline-none"
+                className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:outline-none"
                 value={form.phone}
                 onChange={handleChange}
                 required
@@ -137,7 +143,7 @@ export default function Contact() {
               <textarea
                 name="message"
                 placeholder="Your Message (min 10 characters)"
-                className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:outline-none"
+                className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:outline-none"
                 rows={5}
                 value={form.message}
                 onChange={handleChange}
@@ -148,7 +154,7 @@ export default function Contact() {
                 type="submit"
                 className={`w-full py-4 rounded-lg text-white text-lg font-semibold transition-all duration-300 shadow-md ${
                   isFormValid
-                    ? "bg-yellow-500 hover:bg-yellow-600 hover:shadow-lg cursor-pointer"
+                    ? "bg-red-600 hover:bg-red-700 hover:shadow-lg cursor-pointer"
                     : "bg-gray-400 cursor-not-allowed"
                 }`}
                 disabled={!isFormValid}

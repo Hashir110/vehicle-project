@@ -8,10 +8,10 @@ export default function Footer() {
         {/* Logo Section */}
         <div className="flex flex-col items-start sm:col-span-2 lg:col-span-1">
           <h1 className="text-2xl sm:text-3xl font-bold mb-3 tracking-wider">
-            Vehicle Explorer
+            Vehiclevinreport
           </h1>
           <p className="mt-2 sm:mt-4 text-sm sm:text-base">
-            At Vehicle Explorer Reporter, We are proud of our dedication to
+            At Vehiclevinreport Reporter, We are proud of our dedication to
             quality and accuracy. Our skilled inspectors go thoroughly over each
             component of the automobile.
           </p>
@@ -68,7 +68,7 @@ export default function Footer() {
             Our Email
           </h4>
           <p className="text-red-700 text-sm sm:text-base break-all">
-            developer@gmail.com
+            Vehiclevinreport.com
           </p>
         </div>
 

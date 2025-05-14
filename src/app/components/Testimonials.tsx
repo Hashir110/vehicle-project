@@ -56,11 +56,11 @@ const AnimatedTestimonials = () => {
       {/* Header Image */}
       <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px]">
         <Image
-        src='/pexels-broderick-armbrister-1186919-6462662.jpg'
-        alt="Car Image"
-        fill
-        quality={100}
-        className="object-cover"
+          src="/pexels-broderick-armbrister-1186919-6462662.jpg"
+          alt="Car Image"
+          fill
+          quality={100}
+          className="object-cover"
         />
       </div>
 

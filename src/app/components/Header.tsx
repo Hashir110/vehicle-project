@@ -30,7 +30,9 @@ export default function Header() {
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
-          <span className="text-xl font-bold hidden sm:block">Vehicle Explorer</span>
+          <span className="text-xl font-bold hidden sm:block">
+            Vehiclevinreport
+          </span>
         </Link>
 
         <nav className="hidden md:flex space-x-6">

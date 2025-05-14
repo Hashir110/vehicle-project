@@ -33,7 +33,7 @@ export default function About() {
           <div className="flex flex-col justify-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Welcome to The Vehicle{" "}
-              <span className="border-b-2 border-red-800 inline-block pb-1">
+              <span className="border-b-2 border-red-700 inline-block pb-1">
                 Explorer
               </span>
             </h2>

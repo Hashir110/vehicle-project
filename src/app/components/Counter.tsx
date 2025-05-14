@@ -21,13 +21,13 @@ const CounterComponent = () => {
       ref={ref}
       className="relative py-20 bg-cover bg-center bg-no-repeat"
     >
-      <Image 
-      src='/pic for counter.jpg'
-      alt='Counter background'
-      fill
-      quality={100}
-      className="absolute inset-0 object-cover object-center "
-      /> 
+      <Image
+        src="/pic for counter.jpg"
+        alt="Counter background"
+        fill
+        quality={100}
+        className="absolute inset-0 object-cover object-center "
+      />
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/30"></div>
 
@@ -57,7 +57,3 @@ const CounterComponent = () => {
 };
 
 export default CounterComponent;
-
-
-
-

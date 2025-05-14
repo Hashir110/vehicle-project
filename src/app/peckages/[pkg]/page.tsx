@@ -120,7 +120,7 @@ export default function CarPackagePage({
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center py-10">
       <div className="relative">
-        <span className="absolute top-5 left-2 bg-yellow-500 text-white text-xs px-2 py-1 rounded-full z-10">
+        <span className="absolute top-5 left-2 bg-red-600 text-white text-xs px-2 py-1 rounded-full z-10">
           Sale!
         </span>
         <div className="relative h-[400px] md:h-[500px] md:mb-12 rounded-lg shadow-lg overflow-hidden">
@@ -152,8 +152,8 @@ export default function CarPackagePage({
           className={`${
             isInCart
               ? "bg-gray-400 cursor-not-allowed"
-              : "bg-yellow-500 hover:bg-yellow-600 hover:cursor-pointer"
-          } text-black font-semibold py-2 px-6 rounded-full`}
+              : "bg-red-500 hover:bg-red-700 hover:cursor-pointer"
+          } text-white font-semibold py-2 px-6 rounded-full`}
         >
           {isInCart ? "Added!" : "Add to Cart"}
         </button>

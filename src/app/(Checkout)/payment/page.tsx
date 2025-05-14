@@ -9,10 +9,10 @@ const Page = () => {
   const { cart } = useCart();
 
   const calculateTotalAmount = () => {
-    return cart.reduce((total, item) => total + item.price  , 0)
-  }
+    return cart.reduce((total, item) => total + item.price, 0);
+  };
 
-  const totalAmount  = calculateTotalAmount()
+  const totalAmount = calculateTotalAmount();
   return (
     <div className="min-h-screen bg-[#f5f7fa] font-sans text-gray-800">
       {/* Header */}
@@ -53,16 +53,15 @@ const Page = () => {
                         ${item.price}
                       </span>
                     </div>
-                  
                   </div>
                 </div>
               ))}
-                <div className="flex justify-between text-base">
-                      <span>Total</span>
-                      <span className="text-blue-700 font-bold text-lg">
-                        ${totalAmount.toFixed(2)}
-                      </span>
-                    </div>
+              <div className="flex justify-between text-base">
+                <span>Total</span>
+                <span className="text-blue-700 font-bold text-lg">
+                  ${totalAmount.toFixed(2)}
+                </span>
+              </div>
             </div>
             <div className="bg-blue-50 border border-blue-100 rounded-lg p-4 text-sm text-blue-800">
               <div className="flex items-start gap-3">

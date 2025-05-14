@@ -54,10 +54,10 @@ const Page = () => {
 
     try {
       await emailjs.sendForm(
-      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_IDS!,
+      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_IDS!,
       form.current!,
-      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEYS
       );
 
       toast.success("Form submitted successfully!");

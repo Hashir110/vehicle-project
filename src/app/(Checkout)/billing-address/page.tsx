@@ -20,6 +20,7 @@ const Page = () => {
     phone: "",
   });
   const [isFormValid, setIsFormValid] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -44,36 +45,41 @@ const Page = () => {
       phoneOnlyNumbers.length > 0; // bas itna check ke kuch digits hoon
 
     setIsFormValid(isValid);
+    setIsSubmitting(false);
   };
 
-  const sendEmail = (e: React.FormEvent) => {
+  const sendEmail = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true); // loader on
 
-    emailjs
-      .sendForm(
+    try {
+      await emailjs.sendForm(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
         form.current!,
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
-      )
-      .then((result) => {
-        console.log(result.text);
-        toast.success("Form submitted successfully!");
-        setFormData({
-          first_name: "",
-          last_name: "",
-          email: "",
-          address: "",
-          city: "",
-          country: "",
-          zipcode: "",
-          phone: "",
-        });
-        router.push("/payment");
-      });
+      );
 
-    return false;
+      toast.success("Form submitted successfully!");
+      setFormData({
+        first_name: "",
+        last_name: "",
+        email: "",
+        address: "",
+        city: "",
+        country: "",
+        zipcode: "",
+        phone: "",
+      });
+      router.push("/payment"); 
+    } catch (error) {
+      toast.error("Failed to submit form.");
+      console.error(error);
+    } finally {
+      setIsSubmitting(false); // loader off
+    }
   };
+  
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -102,6 +108,7 @@ const Page = () => {
               </label>
               <input
                 id="first_name"
+                value={formData.first_name}
                 name="first_name"
                 type="text"
                 placeholder="Enter your first name"
@@ -119,6 +126,7 @@ const Page = () => {
               </label>
               <input
                 id="last_name"
+                value={formData.last_name}
                 name="last_name"
                 type="text"
                 placeholder="Enter your last name"
@@ -138,6 +146,7 @@ const Page = () => {
             </label>
             <input
               id="email"
+              value={formData.email}
               name="email"
               type="email"
               placeholder="Enter your email"
@@ -156,6 +165,7 @@ const Page = () => {
             </label>
             <input
               id="address"
+              value={formData.address}
               name="address"
               type="text"
               placeholder="123 Main St, Apartment 4B"
@@ -175,6 +185,7 @@ const Page = () => {
               </label>
               <input
                 id="city"
+                value={formData.city}
                 name="city"
                 type="text"
                 placeholder="Enter your city"
@@ -192,6 +203,7 @@ const Page = () => {
               </label>
               <input
                 id="country"
+                value={formData.country}
                 name="country"
                 type="text"
                 placeholder="Enter your country"
@@ -212,6 +224,7 @@ const Page = () => {
               </label>
               <input
                 id="zipcode"
+                value={formData.zipcode}
                 name="zipcode"
                 type="text"
                 placeholder="Enter your ZipCode"
@@ -229,6 +242,7 @@ const Page = () => {
               </label>
               <input
                 id="phone"
+                value={formData.phone}
                 name="phone"
                 type="text"
                 placeholder="Enter your Phone Number"
@@ -241,14 +255,37 @@ const Page = () => {
 
           <button
             type="submit"
-            className={`w-full py-4 rounded-lg text-white text-lg font-semibold transition-all duration-300 shadow-md ${
+            className={`w-full py-4 rounded-lg text-white text-lg font-semibold transition-all duration-300 shadow-md flex justify-center items-center gap-2 ${
               isFormValid
                 ? "bg-red-600 hover:bg-red-700 hover:shadow-lg cursor-pointer"
                 : "bg-gray-400 cursor-not-allowed"
             }`}
-            disabled={!isFormValid}
+            disabled={!isFormValid || isSubmitting}
           >
-            Continue to Payment
+            {isSubmitting ? (
+              <svg
+                className="animate-spin h-5 w-5 text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                ></circle>
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                ></path>
+              </svg>
+            ) : (
+              "Continue to Payment"
+            )}
           </button>
         </form>
       </div>

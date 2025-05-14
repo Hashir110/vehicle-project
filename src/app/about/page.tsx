@@ -27,8 +27,8 @@ export default function About() {
       </div>
 
       {/* Content Section */}
-      <div className="max-w-6xl mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch">
+      <div className="w-full mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch ml-20">
           {/* Text Column */}
           <div className="flex flex-col justify-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -37,7 +37,7 @@ export default function About() {
                 Explorer
               </span>
             </h2>
-            <p className="text-gray-600 text-lg leading-relaxed">
+            <p className="text-gray-600 text-lg tracking-widest ">
               We are committed to delivering quality services for cars and bikes.
               Our premium packages ensure your vehicle gets the best treatment at
               the most affordable rates. Whether you're looking for a simple

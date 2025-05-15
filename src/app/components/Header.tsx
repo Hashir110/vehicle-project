@@ -1,13 +1,13 @@
 "use client";
 import Link from "next/link";
-import { ShoppingCart, Menu, X } from "lucide-react";
+import {  Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import ViewCartModal from "./ViewCartComponent";
+// import ViewCartModal from "./ViewCartComponent";
 import { useCart } from "@/context/CartContext";
 import { usePathname } from "next/navigation";
 
 export default function Header() {
-  const { cart } = useCart();
+  // const { cart } = useCart();
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -54,7 +54,7 @@ export default function Header() {
         {/* Right Actions */}
         <div className="flex items-center gap-4 md:gap-6">
           {/* Cart Icon */}
-          <div className="relative">
+          {/* <div className="relative">
             <span className="absolute -top-2 -right-2 bg-red-600 text-xs text-white rounded-full w-5 h-5 flex items-center justify-center">
               {cart.length}
             </span>
@@ -62,7 +62,7 @@ export default function Header() {
               <ShoppingCart className="w-6 h-6 text-white hover:cursor-pointer" />
             </button>
             {isOpen && <ViewCartModal onClose={() => setIsOpen(false)} />}
-          </div>
+          </div> */}
 
           {/* Mobile Hamburger */}
           <button

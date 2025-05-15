@@ -2,9 +2,10 @@
 
 import { useCart } from "@/context/CartContext";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import React from "react";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 
 const carPackages = {
   silver: {
@@ -106,15 +107,15 @@ export default function CarPackagePage({
       price: pkgData.price,
     });
 
-    toast.success("Added to cart", {
-      position: "top-right",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      theme: "light",
-    });
+    // toast.success("Added to cart", {
+    //   position: "top-right",
+    //   autoClose: 2000,
+    //   hideProgressBar: false,
+    //   closeOnClick: true,
+    //   pauseOnHover: true,
+    //   draggable: true,
+    //   theme: "light",
+    // });
   };
 
   return (
@@ -146,7 +147,7 @@ export default function CarPackagePage({
           ))}
         </ul>
 
-        <button
+        {/* <button
           onClick={handleAddToCart}
           disabled={isInCart}
           className={`${
@@ -156,9 +157,13 @@ export default function CarPackagePage({
           } text-white font-semibold py-2 px-6 rounded-full`}
         >
           {isInCart ? "Added!" : "Add to Cart"}
+        </button> */}
+        <Link href={'/billing-address'}>
+        <button className="bg-red-600 hover:bg-red-700 hover:cursor-pointer text-white font-semibold py-2 px-6 rounded-full">
+          Checkout
         </button>
+        </Link>
       </div>
     </div>
   );
 }
-//

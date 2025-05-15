@@ -7,17 +7,23 @@ import { ArrowRight } from "lucide-react";
 import emailjs from "@emailjs/browser"; // ✅ use the latest version
 import { toast } from "react-toastify";
 
+
+interface FormData {
+  first_name: string;
+    email: string;
+}
+
 const Page = () => {
   const form = useRef(null);
   const [formData, setFormData] = useState({
     first_name: "",
-    last_name: "",
+    // last_name: "",
     email: "",
-    address: "",
-    city: "",
-    country: "",
-    zipcode: "",
-    phone: "",
+    // address: "",
+    // city: "",
+    // country: "",
+    // zipcode: "",
+    // phone: "",
   });
   const [isFormValid, setIsFormValid] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -31,45 +37,48 @@ const Page = () => {
     validateForm(updatedFormData);
   };
 
-  const validateForm = (data: any) => {
-    const phoneOnlyNumbers = data.phone.replace(/\D/g, ""); // sirf digits rakh raha hai
+  const validateForm = (data: FormData): void => {
+  // const phoneOnlyNumbers = data.phone.replace(/\D/g, "");
 
-    const isValid =
-      data.first_name.trim() !== "" &&
-      data.last_name.trim() !== "" &&
-      data.email.trim() !== "" &&
-      data.address.trim() !== "" &&
-      data.city.trim() !== "" &&
-      data.country.trim() !== "" &&
-      data.zipcode.trim() !== "" &&
-      phoneOnlyNumbers.length > 0; // bas itna check ke kuch digits hoon
+  const isValid: boolean =
+    data.first_name.trim() !== "" &&
+    // data.last_name.trim() !== "" &&
+    data.email.trim() !== "";
+    // data.address.trim() !== "" &&
+    // data.city.trim() !== "" &&
+    // data.country.trim() !== "" &&
+    // data.zipcode.trim() !== "" &&
+    // phoneOnlyNumbers.length > 0;
 
-    setIsFormValid(isValid);
-    setIsSubmitting(false);
-  };
+  setIsFormValid(isValid);
+};
+
 
   const sendEmail = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true); // loader on
 
-    try {
-      await emailjs.sendForm(
-      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_IDS!,
-      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_IDS!,
-      form.current!,
-      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEYS
-      );
-
-      toast.success("Form submitted successfully!");
-      setFormData({
-        first_name: "",
-        last_name: "",
-        email: "",
-        address: "",
-        city: "",
-        country: "",
-        zipcode: "",
-        phone: "",
+    emailjs
+      .sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        form.current!,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      )
+      .then((result) => {
+        console.log(result.text);
+        toast.success("Form submitted successfully!");
+        setFormData({
+          first_name: "",
+          // last_name: "",
+          email: "",
+          // address: "",
+          // city: "",
+          // country: "",
+          // zipcode: "",
+          // phone: "",
+        });
+        router.push("/payment");
       });
       router.push("/payment"); 
     } catch (error) {
@@ -98,8 +107,8 @@ const Page = () => {
           onSubmit={sendEmail}
           className="bg-white p-8 rounded-lg shadow-md"
         >
-          <div className="flex flex-col md:flex-row gap-6 mb-4">
-            <div className="w-full md:w-1/2">
+          <div className="flex flex-col  gap-6 mb-4">
+            <div className="w-full ">
               <label
                 htmlFor="first_name"
                 className="block text-sm font-medium text-gray-700 mb-1"
@@ -117,7 +126,7 @@ const Page = () => {
                 className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-red-600"
               />
             </div>
-            <div className="w-full md:w-1/2">
+            {/* <div className="w-full md:w-1/2">
               <label
                 htmlFor="last_name"
                 className="block text-sm font-medium text-gray-700 mb-1"
@@ -135,7 +144,7 @@ const Page = () => {
                 className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-red-600"
               />
             </div>
-          </div>
+          </div> */}
 
           <div className="mb-4">
             <label
@@ -156,7 +165,7 @@ const Page = () => {
             />
           </div>
 
-          <div className="mb-4">
+          {/* <div className="mb-4">
             <label
               htmlFor="address"
               className="block text-sm font-medium text-gray-700 mb-1"
@@ -173,9 +182,9 @@ const Page = () => {
               onChange={handleChange}
               className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-red-600"
             />
-          </div>
+          </div> */}
 
-          <div className="flex flex-col md:flex-row gap-6 mb-6">
+          {/* <div className="flex flex-col md:flex-row gap-6 mb-6">
             <div className="w-full md:w-1/2">
               <label
                 htmlFor="city"
@@ -193,8 +202,8 @@ const Page = () => {
                 onChange={handleChange}
                 className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-red-600"
               />
-            </div>
-            <div className="w-full md:w-1/2">
+            </div> */}
+            {/* <div className="w-full md:w-1/2">
               <label
                 htmlFor="country"
                 className="block text-sm font-medium text-gray-700 mb-1"
@@ -212,9 +221,9 @@ const Page = () => {
                 className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-red-600"
               />
             </div>
-          </div>
+          </div> */}
 
-          <div className="flex flex-col md:flex-row gap-6 mb-6">
+          {/* <div className="flex flex-col md:flex-row gap-6 mb-6">
             <div className="w-full md:w-1/2">
               <label
                 htmlFor="zipcode"
@@ -232,8 +241,8 @@ const Page = () => {
                 onChange={handleChange}
                 className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-red-600"
               />
-            </div>
-            <div className="w-full md:w-1/2">
+            </div> */}
+            {/* <div className="w-full md:w-1/2">
               <label
                 htmlFor="phone"
                 className="block text-sm font-medium text-gray-700 mb-1"
@@ -250,7 +259,7 @@ const Page = () => {
                 onChange={handleChange}
                 className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-red-600"
               />
-            </div>
+            </div> */}
           </div>
 
           <button

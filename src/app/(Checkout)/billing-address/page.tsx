@@ -58,29 +58,25 @@ const Page = () => {
     e.preventDefault();
     setIsSubmitting(true); // loader on
 
-    emailjs
-      .sendForm(
+    try {
+      await emailjs.sendForm(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
         form.current!,
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
-      )
-      .then((result) => {
-        console.log(result.text);
-        toast.success("Form submitted successfully!");
-        setFormData({
-          first_name: "",
-          // last_name: "",
-          email: "",
-          // address: "",
-          // city: "",
-          // country: "",
-          // zipcode: "",
-          // phone: "",
-        });
-        router.push("/payment");
+      );
+      toast.success("Form submitted successfully!");
+      setFormData({
+        first_name: "",
+        // last_name: "",
+        email: "",
+        // address: "",
+        // city: "",
+        // country: "",
+        // zipcode: "",
+        // phone: "",
       });
-      router.push("/payment"); 
+      router.push("/payment");
     } catch (error) {
       toast.error("Failed to submit form.");
       console.error(error);

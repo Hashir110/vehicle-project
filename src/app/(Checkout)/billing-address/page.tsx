@@ -7,14 +7,14 @@ import { ArrowRight } from "lucide-react";
 import emailjs from "@emailjs/browser"; // ✅ use the latest version
 import { toast } from "react-toastify";
 
-
 interface FormData {
   first_name: string;
-    email: string;
+  email: string;
 }
 
 const Page = () => {
   const form = useRef(null);
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     first_name: "",
     // last_name: "",
@@ -38,25 +38,24 @@ const Page = () => {
   };
 
   const validateForm = (data: FormData): void => {
-  // const phoneOnlyNumbers = data.phone.replace(/\D/g, "");
+    // const phoneOnlyNumbers = data.phone.replace(/\D/g, "");
 
-  const isValid: boolean =
-    data.first_name.trim() !== "" &&
-    // data.last_name.trim() !== "" &&
-    data.email.trim() !== "";
+    const isValid: boolean =
+      data.first_name.trim() !== "" &&
+      // data.last_name.trim() !== "" &&
+      data.email.trim() !== "";
     // data.address.trim() !== "" &&
     // data.city.trim() !== "" &&
     // data.country.trim() !== "" &&
     // data.zipcode.trim() !== "" &&
     // phoneOnlyNumbers.length > 0;
 
-  setIsFormValid(isValid);
-};
-
+    setIsFormValid(isValid);
+  };
 
   const sendEmail = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true); // loader on
+    setIsLoading(true);
 
     try {
       await emailjs.sendForm(
@@ -64,17 +63,22 @@ const Page = () => {
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
         form.current!,
         process.env.NEXT_PUBLIC_EMAILJS_ACC_ID!
-      );
-      toast.success("Form submitted successfully!");
-      setFormData({
-        first_name: "",
-        // last_name: "",
-        email: "",
-        // address: "",
-        // city: "",
-        // country: "",
-        // zipcode: "",
-        // phone: "",
+      )
+      .then((result) => {
+        console.log(result.text);
+        toast.success("Form submitted successfully!");
+        setFormData({
+          first_name: "",
+          // last_name: "",
+          email: "",
+          // address: "",
+          // city: "",
+          // country: "",
+          // zipcode: "",
+          // phone: "",
+        });
+        setIsLoading(false);
+        router.push("/payment");
       });
       router.push("/payment");
     } catch (error) {
@@ -142,26 +146,25 @@ const Page = () => {
             </div>
           </div> */}
 
-          <div className="mb-4">
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Email Address
-            </label>
-            <input
-              id="email"
-              value={formData.email}
-              name="email"
-              type="email"
-              placeholder="Enter your email"
-              required
-              onChange={handleChange}
-              className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-red-600"
-            />
-          </div>
+            <div className="mb-4">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
+                Email Address
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Enter your email"
+                required
+                onChange={handleChange}
+                className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-red-600"
+              />
+            </div>
 
-          {/* <div className="mb-4">
+            {/* <div className="mb-4">
             <label
               htmlFor="address"
               className="block text-sm font-medium text-gray-700 mb-1"
@@ -180,7 +183,7 @@ const Page = () => {
             />
           </div> */}
 
-          {/* <div className="flex flex-col md:flex-row gap-6 mb-6">
+            {/* <div className="flex flex-col md:flex-row gap-6 mb-6">
             <div className="w-full md:w-1/2">
               <label
                 htmlFor="city"
@@ -219,7 +222,7 @@ const Page = () => {
             </div>
           </div> */}
 
-          {/* <div className="flex flex-col md:flex-row gap-6 mb-6">
+            {/* <div className="flex flex-col md:flex-row gap-6 mb-6">
             <div className="w-full md:w-1/2">
               <label
                 htmlFor="zipcode"
@@ -260,34 +263,16 @@ const Page = () => {
 
           <button
             type="submit"
-            className={`w-full py-4 rounded-lg text-white text-lg font-semibold transition-all duration-300 shadow-md flex justify-center items-center gap-2 ${
-              isFormValid
-                ? "bg-red-600 hover:bg-red-700 hover:shadow-lg cursor-pointer"
-                : "bg-gray-400 cursor-not-allowed"
+            className={`w-full py-4 rounded-lg text-white text-lg font-semibold transition-all duration-300 shadow-md ${
+              isFormValid ? "bg-red-600 hover:bg-red-700 hover:cursor-pointer" : "bg-gray-400"
             }`}
-            disabled={!isFormValid || isSubmitting}
+            disabled={!isFormValid || isLoading}
           >
-            {isSubmitting ? (
-              <svg
-                className="animate-spin h-5 w-5 text-white"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <circle
-                  className="opacity-25"
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke="currentColor"
-                  strokeWidth="4"
-                ></circle>
-                <path
-                  className="opacity-75"
-                  fill="currentColor"
-                  d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
-                ></path>
-              </svg>
+            {isLoading ? (
+              <div className="flex justify-center items-center gap-2">
+                <div className="loader-2 " />
+                Processing...
+              </div>
             ) : (
               "Continue to Payment"
             )}

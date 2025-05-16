@@ -7,7 +7,7 @@ import React from "react";
 const packages = [
   {
     title: "Silver",
-    price: "$14.99",
+    price: 14.99,
     features: [
       "All-in-One Report",
       "DMV History",
@@ -20,7 +20,7 @@ const packages = [
   },
   {
     title: "Gold",
-    price: "$24.99",
+    price: 24.99,
     features: [
       "All-in-One Report",
       "DMV History",
@@ -34,7 +34,7 @@ const packages = [
 
   {
     title: "Platinum",
-    price: "$39.99",
+    price: 39.99,
     features: [
       "All-in-One Report",
       "DMV History",
@@ -93,7 +93,7 @@ export default function Packages() {
               className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition duration-300"
             >
               <h3 className="text-2xl font-semibold text-red-500 mb-2">
-                {pkg.title}
+                ${pkg.title}
               </h3>
               <p className="text-3xl font-bold text-gray-800 mb-4">
                 {pkg.price}

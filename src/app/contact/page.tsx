@@ -1,12 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { toast } from "react-toastify";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
+  const formInput = useRef<HTMLFormElement>(null);
+
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -14,6 +17,7 @@ export default function Contact() {
     message: "",
   });
 
+  const [isLoading, setIsLoading] = useState(false);
   const [isFormValid, setIsFormValid] = useState(false);
 
   useEffect(() => {
@@ -30,14 +34,37 @@ export default function Contact() {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
-    if (isFormValid) {
-      toast.success("Message sent successfully");
-      setForm({ name: "", email: "", phone: "", message: "" });
-    }
+    setIsLoading(true);
+
+    emailjs
+      .sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        formInput.current!,
+        process.env.NEXT_PUBLIC_EMAILJS_ACC_ID!
+      )
+      .then((result) => {
+        console.log(result.text);
+        toast.success("Form submitted successfully!");
+        setForm({
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
+          // last_name: "",
+          // address: "",
+          // city: "",
+          // country: "",
+          // zipcode: "",
+          // phone: "",
+        });
+        setIsLoading(false);
+      });
   };
 
   return (
@@ -110,7 +137,8 @@ export default function Contact() {
               Send Us a Message
             </h2>
             <form
-              onSubmit={handleSubmit}
+              onSubmit={sendEmail}
+              ref={formInput}
               className="space-y-6 text-base sm:text-lg"
             >
               <input
@@ -154,12 +182,19 @@ export default function Contact() {
                 type="submit"
                 className={`w-full py-4 rounded-lg text-white text-lg font-semibold transition-all duration-300 shadow-md ${
                   isFormValid
-                    ? "bg-red-600 hover:bg-red-700 hover:shadow-lg cursor-pointer"
-                    : "bg-gray-400 cursor-not-allowed"
+                    ? "bg-red-600 hover:bg-red-700 hover:cursor-pointer"
+                    : "bg-gray-400"
                 }`}
-                disabled={!isFormValid}
+                disabled={!isFormValid || isLoading}
               >
-                Send Message
+                {isLoading ? (
+                  <div className="flex justify-center items-center gap-2">
+                    <div className="loader-2 " />
+                    Processing...
+                  </div>
+                ) : (
+                  "Continue to Payment"
+                )}
               </button>
             </form>
           </div>

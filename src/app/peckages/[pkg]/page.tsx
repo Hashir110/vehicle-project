@@ -2,10 +2,9 @@
 
 import { useCart } from "@/context/CartContext";
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
+import { useRouter } from "next/navigation";
 import React from "react";
-// import { toast } from "react-toastify";
 
 const carPackages = {
   silver: {
@@ -56,14 +55,12 @@ const carPackages = {
       "Vehicle Specifications",
     ],
   },
-
   platinum: {
     title: "Platinum Package",
     price: 39.99,
     originalPrice: 49.99,
     slug: "platinum",
     image: "/car&bike.avif",
-
     features: [
       "Vehicle Overview",
       "Theft Record",
@@ -93,29 +90,21 @@ export default function CarPackagePage({
   const pkgData = carPackages[pkg as keyof typeof carPackages];
 
   const { cart, addToCart } = useCart();
+  const router = useRouter();
 
   if (!pkgData) return notFound();
 
   const isInCart = cart.some((item) => item.id === pkg);
 
-  const handleAddToCart = () => {
-    if (isInCart) return;
-
-    addToCart({
-      id: pkg,
-      title: pkg,
-      price: pkgData.price,
-    });
-
-    // toast.success("Added to cart", {
-    //   position: "top-right",
-    //   autoClose: 2000,
-    //   hideProgressBar: false,
-    //   closeOnClick: true,
-    //   pauseOnHover: true,
-    //   draggable: true,
-    //   theme: "light",
-    // });
+  const handleCheckout = () => {
+    if (!isInCart) {
+      addToCart({
+        id: pkg,
+        title: pkgData.title,
+        price: pkgData.price,
+      });
+    }
+    router.push("/billing-address");
   };
 
   return (
@@ -128,7 +117,7 @@ export default function CarPackagePage({
           <Image
             src={pkgData.image}
             alt={pkgData.title}
-           fill
+            fill
             quality={100}
             className="object-cover"
             priority
@@ -137,7 +126,7 @@ export default function CarPackagePage({
       </div>
 
       <div>
-        <h2 className="text-3xl font-bold mb-2 capitalize">{pkg}</h2>
+        <h2 className="text-3xl font-bold mb-2 capitalize">{pkgData.title}</h2>
         <p className="text-xl mb-4">
           <span className="text-black font-bold">${pkgData.price}</span>
         </p>
@@ -147,22 +136,12 @@ export default function CarPackagePage({
           ))}
         </ul>
 
-        {/* <button
-          onClick={handleAddToCart}
-          disabled={isInCart}
-          className={`${
-            isInCart
-              ? "bg-gray-400 cursor-not-allowed"
-              : "bg-red-500 hover:bg-red-700 hover:cursor-pointer"
-          } text-white font-semibold py-2 px-6 rounded-full`}
+        <button
+          onClick={handleCheckout}
+          className="bg-red-600 hover:bg-red-700 hover:cursor-pointer text-white font-semibold py-2 px-6 rounded-full"
         >
-          {isInCart ? "Added!" : "Add to Cart"}
-        </button> */}
-        <Link href={'/billing-address'}>
-        <button className="bg-red-600 hover:bg-red-700 hover:cursor-pointer text-white font-semibold py-2 px-6 rounded-full">
           Checkout
         </button>
-        </Link>
       </div>
     </div>
   );

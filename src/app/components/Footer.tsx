@@ -68,7 +68,7 @@ export default function Footer() {
             Our Email
           </h4>
           <p className="text-red-700 text-sm sm:text-base break-all">
-            Vehiclevinreport.com
+            Vehiclevinsreport.com
           </p>
         </div>
 

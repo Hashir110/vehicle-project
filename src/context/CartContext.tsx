@@ -1,7 +1,11 @@
 "use client";
-import { createContext, useContext, useState, useEffect } from "react";
 
-type CartItem = {
+import React, { createContext, useContext, useState, useEffect } from "react";
+
+import { Elements } from "@stripe/react-stripe-js";
+import { stripePromise } from '@/context/stripe';
+
+export type CartItem = {
   id: string;
   title: string;
   price: number;
@@ -11,45 +15,54 @@ type CartContextType = {
   cart: CartItem[];
   addToCart: (item: CartItem) => void;
   removeFromCart: (id: string) => void;
+  clearCart: () => void;
+  isLoading: boolean;
 };
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // 🟡 Load from localStorage
   useEffect(() => {
     const storedCart = localStorage.getItem("cart");
     if (storedCart) {
       setCart(JSON.parse(storedCart));
     }
+    setIsLoading(false);
   }, []);
 
-  // 🔵 Save to localStorage
+  // Save cart to localStorage on change (after loading)
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
+    if (!isLoading) {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+  }, [cart, isLoading]);
 
   const addToCart = (item: CartItem) => {
-    // prevent duplicate entries (optional)
-    if (!cart.some((i) => i.id === item.id)) {
-      setCart((prev) => [...prev, item]);
-    }
+    setCart((prev) => [...prev, item]);
   };
 
   const removeFromCart = (id: string) => {
     setCart((prev) => prev.filter((item) => item.id !== id));
   };
 
+  const clearCart = () => {
+    setCart([]);
+    localStorage.removeItem("cart");
+  };
+
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, isLoading , clearCart }}>
+      <Elements stripe={stripePromise}>
       {children}
+      </Elements>
     </CartContext.Provider>
   );
 };
 
-export const useCart = () => {
+export const useCart = (): CartContextType => {
   const context = useContext(CartContext);
   if (!context) {
     throw new Error("useCart must be used within a CartProvider");

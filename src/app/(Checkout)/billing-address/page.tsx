@@ -7,14 +7,14 @@ import { ArrowRight } from "lucide-react";
 import emailjs from "@emailjs/browser"; // ✅ use the latest version
 import { toast } from "react-toastify";
 
-
 interface FormData {
   first_name: string;
-    email: string;
+  email: string;
 }
 
 const Page = () => {
   const form = useRef(null);
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     first_name: "",
     // last_name: "",
@@ -37,31 +37,31 @@ const Page = () => {
   };
 
   const validateForm = (data: FormData): void => {
-  // const phoneOnlyNumbers = data.phone.replace(/\D/g, "");
+    // const phoneOnlyNumbers = data.phone.replace(/\D/g, "");
 
-  const isValid: boolean =
-    data.first_name.trim() !== "" &&
-    // data.last_name.trim() !== "" &&
-    data.email.trim() !== "";
+    const isValid: boolean =
+      data.first_name.trim() !== "" &&
+      // data.last_name.trim() !== "" &&
+      data.email.trim() !== "";
     // data.address.trim() !== "" &&
     // data.city.trim() !== "" &&
     // data.country.trim() !== "" &&
     // data.zipcode.trim() !== "" &&
     // phoneOnlyNumbers.length > 0;
 
-  setIsFormValid(isValid);
-};
-
+    setIsFormValid(isValid);
+  };
 
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
 
     emailjs
       .sendForm(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
         form.current!,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+        process.env.NEXT_PUBLIC_EMAILJS_ACC_ID!
       )
       .then((result) => {
         console.log(result.text);
@@ -76,6 +76,7 @@ const Page = () => {
           // zipcode: "",
           // phone: "",
         });
+        setIsLoading(false);
         router.push("/payment");
       });
 
@@ -136,25 +137,25 @@ const Page = () => {
             </div>
           </div> */}
 
-          <div className="mb-4">
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Email Address
-            </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              placeholder="Enter your email"
-              required
-              onChange={handleChange}
-              className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-red-600"
-            />
-          </div>
+            <div className="mb-4">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
+                Email Address
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Enter your email"
+                required
+                onChange={handleChange}
+                className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-red-600"
+              />
+            </div>
 
-          {/* <div className="mb-4">
+            {/* <div className="mb-4">
             <label
               htmlFor="address"
               className="block text-sm font-medium text-gray-700 mb-1"
@@ -172,7 +173,7 @@ const Page = () => {
             />
           </div> */}
 
-          {/* <div className="flex flex-col md:flex-row gap-6 mb-6">
+            {/* <div className="flex flex-col md:flex-row gap-6 mb-6">
             <div className="w-full md:w-1/2">
               <label
                 htmlFor="city"
@@ -209,7 +210,7 @@ const Page = () => {
             </div>
           </div> */}
 
-          {/* <div className="flex flex-col md:flex-row gap-6 mb-6">
+            {/* <div className="flex flex-col md:flex-row gap-6 mb-6">
             <div className="w-full md:w-1/2">
               <label
                 htmlFor="zipcode"
@@ -249,13 +250,18 @@ const Page = () => {
           <button
             type="submit"
             className={`w-full py-4 rounded-lg text-white text-lg font-semibold transition-all duration-300 shadow-md ${
-              isFormValid
-                ? "bg-red-600 hover:bg-red-700 hover:shadow-lg cursor-pointer"
-                : "bg-gray-400 cursor-not-allowed"
+              isFormValid ? "bg-red-600 hover:bg-red-700" : "bg-gray-400"
             }`}
-            disabled={!isFormValid}
+            disabled={!isFormValid || isLoading}
           >
-            Continue to Payment
+            {isLoading ? (
+              <div className="flex justify-center items-center gap-2">
+                <div className="loader-2 " />
+                Processing...
+              </div>
+            ) : (
+              "Continue to Payment"
+            )}
           </button>
         </form>
       </div>

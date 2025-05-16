@@ -29,14 +29,18 @@ export default function PaymentSuccessPage() {
                 className={`absolute inset-0 bg-green-50 rounded-full ${
                   animateCheck ? "scale-100 opacity-100" : "scale-0 opacity-0"
                 }`}
-                style={{ transition: "all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)" }}
+                style={{
+                  transition:
+                    "all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                }}
               ></div>
               <CheckCircle
                 className={`w-16 h-16 text-green-500 z-10 ${
                   animateCheck ? "scale-100 opacity-100" : "scale-50 opacity-0"
                 }`}
                 style={{
-                  transition: "all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                  transition:
+                    "all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
                   transitionDelay: "0.1s",
                 }}
               />
@@ -44,20 +48,26 @@ export default function PaymentSuccessPage() {
           </div>
 
           <div className="px-8 pb-12 text-center">
-            <h1 className="text-2xl font-bold text-gray-800 mb-2">Payment Successful</h1>
-            <p className="text-gray-500 mb-6">Thank you for your purchase. Your car report is ready.</p>
+            <h1 className="text-2xl font-bold text-gray-800 mb-2">
+              Payment Successful
+            </h1>
+            <p className="text-gray-500 mb-6">
+              Thank you for your purchase. Your car report is ready.
+            </p>
 
             {orderReference && (
               <div className="inline-block bg-gray-50 rounded-full px-4 py-2 text-sm text-gray-500">
                 Order Reference: {orderReference}
               </div>
             )}
-            <Link href={'/'}>
-            <button className="bg-green-500 w-full h-10 text-white rounded-3xl mt-4 cursor-pointer">Go to HomePage</button>
+            <Link href={"/"}>
+              <button className="bg-green-500 w-full h-10 text-white rounded-3xl mt-4 hover:cursor-pointer">
+                Go to HomePage
+              </button>
             </Link>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }

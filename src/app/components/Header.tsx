@@ -66,7 +66,7 @@ export default function Header() {
 
           {/* Mobile Hamburger */}
           <button
-            className="md:hidden focus:outline-none"
+            className="md:hidden focus:outline-none hover:cursor-pointer"
             onClick={() => setIsMobileMenuOpen((prev) => !prev)}
           >
             {isMobileMenuOpen ? (

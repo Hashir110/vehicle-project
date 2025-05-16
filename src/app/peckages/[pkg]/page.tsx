@@ -138,7 +138,7 @@ export default function CarPackagePage({
 
         <button
           onClick={handleCheckout}
-          className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-full"
+          className="bg-red-600 hover:bg-red-700 hover:cursor-pointer text-white font-semibold py-2 px-6 rounded-full"
         >
           Checkout
         </button>

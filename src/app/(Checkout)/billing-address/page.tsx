@@ -250,7 +250,7 @@ const Page = () => {
           <button
             type="submit"
             className={`w-full py-4 rounded-lg text-white text-lg font-semibold transition-all duration-300 shadow-md ${
-              isFormValid ? "bg-red-600 hover:bg-red-700" : "bg-gray-400"
+              isFormValid ? "bg-red-600 hover:bg-red-700 hover:cursor-pointer" : "bg-gray-400"
             }`}
             disabled={!isFormValid || isLoading}
           >

@@ -95,7 +95,9 @@ const Stripe = ({ total }: StripeProps) => {
           type="submit"
           disabled={!stripe || loading}
           className={`mt-4 w-full py-3 rounded-lg text-white font-semibold ${
-            !stripe || loading ? "bg-gray-400" : "bg-blue-600 hover:bg-blue-700"
+            !stripe || loading
+              ? "bg-gray-400"
+              : "bg-blue-600 hover:bg-blue-700 hover:cursor-pointer"
           } transition duration-200`}
         >
           {loading ? "Processing..." : "Pay Now"}

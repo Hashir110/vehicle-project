@@ -26,12 +26,12 @@ export default function Header() {
   ];
 
   return (
-    <header className="bg-black text-white px-6 py-6 shadow-md relative">
+    <header className="bg-black text-white px-6 py-6 shadow-md sticky top-0 z-[999] w-full">  
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
           <span className="text-xl font-bold hidden sm:block">
-            Vehiclevinreport
+            Vehicle vin report
           </span>
         </Link>
 

@@ -4,7 +4,7 @@ export default function About() {
   return (
     <section className="w-full">
       {/* Hero Section */}
-      <div className="relative h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] mt-4 rounded-lg shadow-lg overflow-hidden">
+      <div className="relative h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] shadow-lg overflow-hidden">
         <Image
           src="/pic for about.jpg"
           alt="Contact Us"

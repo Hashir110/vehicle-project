@@ -70,7 +70,7 @@ export default function Contact() {
   return (
     <section className="w-full">
       {/* Hero Image */}
-      <div className="relative h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] mt-4 rounded-lg shadow-lg overflow-hidden">
+      <div className="relative h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] shadow-lg overflow-hidden">
         <Image
           src="/pic for contact.jpg"
           alt="Contact Us"
@@ -193,7 +193,7 @@ export default function Contact() {
                     Processing...
                   </div>
                 ) : (
-                  "Continue to Payment"
+                  "Submit"
                 )}
               </button>
             </form>

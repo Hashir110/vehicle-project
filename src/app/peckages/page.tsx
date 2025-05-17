@@ -56,7 +56,7 @@ export default function Packages() {
 
   return (
     <div className="w-full">
-      <div className="relative h-[300px] md:h-[500px] mt-4 rounded-lg shadow-lg overflow-hidden">
+      <div className="relative h-[300px] md:h-[500px] shadow-lg overflow-hidden">
         <Image
           src="/car&bike.avif"
           alt="Contact Us"

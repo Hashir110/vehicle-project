@@ -31,7 +31,7 @@ export default function RootLayout({
       <body className="bg-white text-black">
         <CartProvider>
           <Header />
-          <main className="min-h-[90vh] px-4">{children}</main>
+          <main>{children}</main>
           <Footer />
           <ToastContainer />
         </CartProvider>

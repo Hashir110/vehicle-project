@@ -11,7 +11,7 @@ export default function RefundPolicy() {
         <div>
           <h2 className="text-2xl font-semibold mb-2">Refund Policy</h2>
           <p>
-            At developer.com, we value your satisfaction with our services and
+            At vehiclevinsreport.com, we value your satisfaction with our services and
             products. We offer a no refund policy for your convenience.
           </p>
           <p className="mt-2">
@@ -72,3 +72,16 @@ export default function RefundPolicy() {
     </section>
   );
 }
+export const metadata = {
+  title: "Refund Policy - Vehiclevinsreport VIN History Report Purchases",
+  description:
+    "Read Vehiclevinsreport's refund policy regarding vehicle history report purchases. Learn about our refund process and your rights when buying VIN reports.",
+  robots: "index, follow",
+  keywords: [
+    "refund policy Vehiclevinsreport",
+    "VIN report refund",
+    "vehicle history report refund",
+    "refund terms VIN reports",
+    "car report refund policy",
+  ],
+};

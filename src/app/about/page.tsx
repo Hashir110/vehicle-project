@@ -60,3 +60,17 @@ export default function About() {
     </section>
   );
 }
+
+export const metadata = {
+  title: "About Vehiclevinsreport - Trusted Vehicle History Report Service",
+  description:
+    "Learn more about Vehiclevinsreport, our mission to provide accurate and instant vehicle history reports, and how we help you make informed decisions.",
+  robots: "index, follow",
+  keywords: [
+    "about Vehiclevinsreport",
+    "vehicle history report service",
+    "trusted car reports",
+    "vehicle report provider",
+    "car history information",
+  ],
+};

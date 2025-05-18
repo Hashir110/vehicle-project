@@ -27,7 +27,9 @@ const CheckoutPage = () => {
         <h1 className="text-4xl font-semibold tracking-wide">Checkout</h1>
         <div className="flex justify-center items-center gap-2 pt-4 text-lg text-gray-300">
           <Link href="/billing-address">
-            <span className="font-medium text-gray-400">Billing Information</span>
+            <span className="font-medium text-gray-400">
+              Billing Information
+            </span>
           </Link>
           <ArrowRight className="w-5 h-5" />
           <span className="text-white font-bold">Payment</span>
@@ -47,21 +49,25 @@ const CheckoutPage = () => {
                 <div key={item.id}>
                   <div className="flex w-full justify-between">
                     <span className="text-gray-900 font-medium">Product:</span>
-                   <p className="text-lg sm:text-xl md:text-2xl font-bold tracking-wide text-gray-800 mb-4 break-words line-clamp-2">
-  {item.title.toUpperCase()}
-</p>
+                    <p className="text-lg sm:text-xl md:text-2xl font-bold tracking-wide text-gray-800 mb-4 break-words line-clamp-2">
+                      {item.title.toUpperCase()}
+                    </p>
                   </div>
                   <div className="space-y-4 mb-6">
                     <div className="flex justify-between text-base">
                       <span>Subtotal</span>
-                      <span className="text-gray-900 font-medium">${item.price}</span>
+                      <span className="text-gray-900 font-medium">
+                        ${item.price}
+                      </span>
                     </div>
                   </div>
                 </div>
               ))}
               <div className="flex justify-between text-base">
                 <span>Total</span>
-                <span className="text-blue-700 font-bold text-lg">${totalAmount.toFixed(2)}</span>
+                <span className="text-blue-700 font-bold text-lg">
+                  ${totalAmount.toFixed(2)}
+                </span>
               </div>
             </div>
             <div className="bg-blue-50 border border-blue-100 rounded-lg p-4 text-sm text-blue-800">

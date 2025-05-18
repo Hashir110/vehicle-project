@@ -7,11 +7,11 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 py-8">
         {/* Logo Section */}
         <div className="flex flex-col items-start sm:col-span-2 lg:col-span-1">
-          <h1 className="text-2xl sm:text-3xl font-bold mb-3 tracking-wider">
-            Vehiclevinreport
+          <h1 className="text-xl sm:text-2xl font-bold mb-3 tracking-wider">
+            Vehicle vins report
           </h1>
           <p className="mt-2 sm:mt-4 text-sm sm:text-base">
-            At Vehiclevinreport Reporter, We are proud of our dedication to
+            At Vehiclevinsreport Reporter, We are proud of our dedication to
             quality and accuracy. Our skilled inspectors go thoroughly over each
             component of the automobile.
           </p>
@@ -102,7 +102,7 @@ export default function Footer() {
 
       {/* Copyright */}
       <div className="mt-6 md:mt-12 text-center bg-[#0f172a] text-white py-4 px-4 text-sm md:text-base">
-        &copy; {new Date().getFullYear()} Vehicle Explorer. All rights reserved.
+        &copy; {new Date().getFullYear()} Vehicle vins report. All rights reserved.
       </div>
     </footer>
   );

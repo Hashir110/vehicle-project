@@ -31,7 +31,7 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
           <span className="text-xl font-bold hidden sm:block">
-            Vehicle vin report
+            Vehicle vins report
           </span>
         </Link>
 

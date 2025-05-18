@@ -10,6 +10,8 @@ import { toast } from "react-toastify";
 interface FormData {
   first_name: string;
   email: string;
+  phone: string;
+  VinNumber: string;
 }
 
 const Page = () => {
@@ -22,8 +24,8 @@ const Page = () => {
     // address: "",
     // city: "",
     // country: "",
-    // zipcode: "",
-    // phone: "",
+    VinNumber: "",
+    phone: "",
   });
   const [isFormValid, setIsFormValid] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -38,7 +40,7 @@ const Page = () => {
   };
 
   const validateForm = (data: FormData): void => {
-    // const phoneOnlyNumbers = data.phone.replace(/\D/g, "");
+    const phoneOnlyNumbers = data.phone.replace(/\D/g, "");
 
     const isValid: boolean =
       data.first_name.trim() !== "" &&
@@ -47,8 +49,8 @@ const Page = () => {
     // data.address.trim() !== "" &&
     // data.city.trim() !== "" &&
     // data.country.trim() !== "" &&
-    // data.zipcode.trim() !== "" &&
-    // phoneOnlyNumbers.length > 0;
+    data.VinNumber.trim() !== "" &&
+    phoneOnlyNumbers.length > 0;
 
     setIsFormValid(isValid);
   };
@@ -74,8 +76,8 @@ const Page = () => {
           // address: "",
           // city: "",
           // country: "",
-          // zipcode: "",
-          // phone: "",
+          VinNumber: "",
+          phone: "",
         });
         setIsLoading(false);
         router.push("/payment");
@@ -125,6 +127,7 @@ const Page = () => {
                 onChange={handleChange}
                 className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-red-600"
               />
+            </div>
             </div>
             {/* <div className="w-full md:w-1/2">
               <label
@@ -222,26 +225,26 @@ const Page = () => {
             </div>
           </div> */}
 
-            {/* <div className="flex flex-col md:flex-row gap-6 mb-6">
+            <div className="flex flex-col md:flex-row gap-6 mb-6">
             <div className="w-full md:w-1/2">
               <label
-                htmlFor="zipcode"
+                htmlFor="VinNumber"
                 className="block text-sm font-medium text-gray-700 mb-1"
               >
-                ZipCode
+                Vin Number
               </label>
               <input
-                id="zipcode"
-                value={formData.zipcode}
-                name="zipcode"
+                id="VinNumber"
+                value={formData.VinNumber}
+                name="VinNumber"
                 type="text"
-                placeholder="Enter your ZipCode"
+                placeholder="Enter your Vin Number"
                 required
                 onChange={handleChange}
                 className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-red-600"
               />
-            </div> */}
-            {/* <div className="w-full md:w-1/2">
+            </div>
+            <div className="w-full md:w-1/2">
               <label
                 htmlFor="phone"
                 className="block text-sm font-medium text-gray-700 mb-1"
@@ -258,7 +261,7 @@ const Page = () => {
                 onChange={handleChange}
                 className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-red-600"
               />
-            </div> */}
+            </div>
           </div>
 
           <button

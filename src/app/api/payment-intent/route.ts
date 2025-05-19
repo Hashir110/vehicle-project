@@ -2,9 +2,12 @@ import Stripe from 'stripe';
 import { NextResponse, NextRequest } from 'next/server';
 
 // Debug: check if env variable is being read correctly
-console.log("✅ STRIPE_SECRET_KEY present:", !!process.env.STRIPE_SECRET_KEY);
+console.log(
+  "✅ STRIPE_SECRET_KEY present:",
+  !!process.env.NEXT_STRIPE_PUBLIC_KEY
+);
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
+const stripe = new Stripe(process.env.NEXT_STRIPE_PUBLIC_KEY as string);
 
 export async function POST(req: NextRequest) {
   try {

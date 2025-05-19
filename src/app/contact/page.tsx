@@ -125,7 +125,7 @@ export default function Contact() {
                 />
                 <span>
                   <span className="font-semibold">Email:</span>{" "}
-                  support@vehicleexplorer.com
+                  vehiclevinsreport@gmail.com
                 </span>
               </p>
             </div>

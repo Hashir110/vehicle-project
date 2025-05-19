@@ -64,7 +64,7 @@ export default function RefundPolicy() {
           <p>
             If you have any questions or need clarification regarding our refund
             policy, please do not hesitate to reach out to us via email at{" "}
-            <strong>Vehiclevinreport21@gmail.com</strong>. We are here to assist
+            <strong>vehiclevinsreport@gmail.com</strong>. We are here to assist
             you and ensure your satisfaction.
           </p>
         </div>

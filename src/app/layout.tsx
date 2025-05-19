@@ -5,8 +5,9 @@ import "./globals.css";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import Script from "next/script"; // ✅ import Script
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Vehiclevinsreport - Instant & Trusted Vehicle History Reports",
   description:
     "Generate comprehensive and reliable vehicle history reports instantly using Vehiclevinsreport. Enter your VIN and get accurate car data to make informed decisions.",
@@ -20,8 +21,9 @@ export const metadata = {
     "VIN lookup",
     "used car report",
     "Vin number",
-    "Vehicle Vin"
+    "Vehicle Vin",
   ],
+  metadataBase: new URL("https://vercelvinsreport.com"), // optional for canonical links
 };
 
 export default function RootLayout({

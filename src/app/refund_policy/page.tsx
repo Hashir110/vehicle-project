@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import React from "react";
 
 export default function RefundPolicy() {
@@ -72,7 +73,8 @@ export default function RefundPolicy() {
     </section>
   );
 }
-export const metadata = {
+
+export const metadata: Metadata = {
   title: "Refund Policy - Vehiclevinsreport VIN History Report Purchases",
   description:
     "Read Vehiclevinsreport's refund policy regarding vehicle history report purchases. Learn about our refund process and your rights when buying VIN reports.",
@@ -85,3 +87,4 @@ export const metadata = {
     "car report refund policy",
   ],
 };
+

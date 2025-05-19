@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Image from "next/image";
 
 export default function About() {
@@ -61,7 +62,7 @@ export default function About() {
   );
 }
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "About Vehiclevinsreport - Trusted Vehicle History Report Service",
   description:
     "Learn more about Vehiclevinsreport, our mission to provide accurate and instant vehicle history reports, and how we help you make informed decisions.",
@@ -74,3 +75,4 @@ export const metadata = {
     "car history information",
   ],
 };
+

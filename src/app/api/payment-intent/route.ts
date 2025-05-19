@@ -2,10 +2,10 @@ import Stripe from 'stripe';
 import { NextResponse, NextRequest } from 'next/server';
 
 // Debug: check if env variable is being read correctly
-console.log(
-  "✅ STRIPE_SECRET_KEY present:",
-  !!process.env.NEXT_STRIPE_PUBLIC_KEY
-);
+// console.log(
+//   "✅ STRIPE_SECRET_KEY present:",
+//   !!process.env.NEXT_STRIPE_PUBLIC_KEY
+// );
 
 const stripe = new Stripe(process.env.NEXT_STRIPE_PUBLIC_KEY as string);
 
@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
   try {
     const { amount } = await req.json();
 
-    console.log("🟢 Received payment amount:", amount);
+    // console.log("🟢 Received payment amount:", amount);
 
     if (!amount || typeof amount !== "number") {
       return NextResponse.json(
@@ -30,11 +30,11 @@ export async function POST(req: NextRequest) {
     });
 
     // Debug: Log client secret
-    console.log("🟢 Created PaymentIntent:", paymentIntent.id);
+    // console.log("🟢 Created PaymentIntent:", paymentIntent.id);
 
     return NextResponse.json({ client_secret: paymentIntent.client_secret });
   } catch (error) {
-    console.error("❌ Stripe PaymentIntent creation failed:", error);
+    // console.error("❌ Stripe PaymentIntent creation failed:", error);
 
     const errorMessage = (error as Error).message || "Internal Server Error";
     return NextResponse.json({ error: errorMessage }, { status: 500 });

@@ -10,7 +10,7 @@ const carPackages = {
   silver: {
     title: "Silver Package",
     price: 14.99,
-    originalPrice: 24.99,
+    originalPrice: 14.99,
     slug: "silver",
     image: "/car&bike.avif",
     features: [
@@ -33,7 +33,7 @@ const carPackages = {
   },
   gold: {
     title: "Gold Package",
-    price: 14.99,
+    price: 24.99,
     originalPrice: 24.99,
     slug: "gold",
     image: "/car&bike.avif",

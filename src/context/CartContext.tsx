@@ -2,8 +2,8 @@
 
 import React, { createContext, useContext, useState, useEffect } from "react";
 
-import { Elements } from "@stripe/react-stripe-js";
-import { stripePromise } from '@/context/stripe';
+// import { Elements } from "@stripe/react-stripe-js";
+// import { stripePromise } from '@/context/stripe';
 
 export type CartItem = {
   id: string;
@@ -55,9 +55,9 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <CartContext.Provider value={{ cart, addToCart, removeFromCart, isLoading , clearCart }}>
-      <Elements stripe={stripePromise}>
+      {/* <Elements stripe={stripePromise}> */}
       {children}
-      </Elements>
+      {/* </Elements> */}
     </CartContext.Provider>
   );
 };

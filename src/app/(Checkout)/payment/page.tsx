@@ -3,9 +3,9 @@
 import React from "react";
 import { ArrowRight, Shield } from "lucide-react";
 import Link from "next/link";
-// import Paypal from "@/app/components/Paypal";
+import Paypal from "@/app/components/Paypal";
 import { useCart } from "@/context/CartContext";
-import Stripe from "@/app/components/Stripe";
+// import Stripe from "@/app/components/Stripe";
 
 const CheckoutPage = () => {
   const { cart, isLoading } = useCart();
@@ -85,11 +85,11 @@ const CheckoutPage = () => {
 
         {/* Payment Section */}
         <div className="w-full md:w-1/2 bg-gray-100 py-10 px-6 rounded-2xl shadow-inner">
-          {/* <div className="bg-white shadow-lg rounded-2xl p-6">
+          <div className="bg-white shadow-lg rounded-2xl p-6">
             <h3 className="text-md font-semibold mb-4 text-gray-800">Pay with PayPal</h3>
             <Paypal />
-          </div> */}
-          <Stripe total={totalAmount} />
+          </div>
+          {/* <Stripe total={totalAmount} /> */}
         </div>
       </div>
     </div>

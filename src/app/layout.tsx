@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import "./globals.css";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
-import Script from "next/script"; // ✅ import Script
+import Script from "next/script";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     "Vin number",
     "Vehicle Vin",
   ],
-  metadataBase: new URL("https://vercelvinsreport.com"), // optional for canonical links
+  metadataBase: new URL("https://www.vehiclevinsreport.com/"),
 };
 
 export default function RootLayout({
@@ -34,14 +34,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-       {/* <Script
-  src="https://www.paypal.com/sdk/js?client-id=AdJq94sV-y0iXYIkLUiIHVxfvD7BhvAf-XGMaRS_olKSrj4lON1jIANscPFI2FKPhJx3HPqog1Q84-re&components=buttons&disable-funding=paylater,venmo"
-  strategy="beforeInteractive"
-/> */}
-      <Script
-        src="https://www.paypal.com/sdk/js?client-id=AdJq94sV-y0iXYIkLUiIHVxfvD7BhvAf-XGMaRS_olKSrj4lON1jIANscPFI2FKPhJx3HPqog1Q84-re"
-        strategy="beforeInteractive"
-      />
+        <Script
+          src={`https://www.paypal.com/sdk/js?client-id=${process.env.PAYPAL_CLIENT_SECRET}&disable-funding=paylater`}
+          strategy="beforeInteractive"
+        />
       </head>
       <body className="bg-white text-black">
         <CartProvider>

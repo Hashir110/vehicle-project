@@ -1,6 +1,9 @@
 "use client";
 import React, { useEffect } from "react";
 import { useCart } from "@/context/CartContext";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
+
 declare global {
   interface Window {
     paypal: any;
@@ -8,7 +11,8 @@ declare global {
 }
 
 const PayPalButton = () => {
-  const { cart } = useCart();
+  const { cart, clearCart } = useCart();
+  const router = useRouter();
   const totalAmount = cart.reduce((total, item) => total + item.price, 0);
   useEffect(() => {
     if (!window.paypal) return;
@@ -30,15 +34,32 @@ const PayPalButton = () => {
             purchase_units: [
               {
                 amount: {
-                  value: totalAmount,
+                  value: totalAmount.toFixed(2),
                 },
               },
             ],
           });
         },
         onApprove: (data: any, actions: any) => {
-          return actions.order.capture().then((details: any) => {
-            alert("Payment successful: " + details.payer.name.given_name);
+          return actions.order.capture().then(async (details: any) => {
+            toast.success("Payment successfull ! ");
+            try {
+              const response = await fetch("/api/save-transaction", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ details, cart }),
+              });
+
+              const result = await response.json();
+              console.log("API response:", result);
+              router.push("/payment-success");
+              clearCart();
+            } catch (error) {
+              console.error("Failed to save transaction:", error);
+              router.push("/payment-failed");
+            }
           });
         },
         onError: (err: any) => {

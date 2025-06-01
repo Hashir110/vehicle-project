@@ -61,6 +61,7 @@ const AnimatedTestimonials = () => {
           fill
           quality={100}
           className="object-cover"
+          priority
         />
       </div>
 

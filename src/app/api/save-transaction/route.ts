@@ -2,6 +2,11 @@ import { NextResponse } from "next/server";
 import { db } from "@/lib/firebaseAdmin";
 
 export async function POST(request: Request) {
+
+  const currentTimeInPakistan = new Date().toLocaleString("en-US", {
+  timeZone: "Asia/Karachi",
+})
+
   try {
     const body = await request.json();
     const { details, cart } = body;
@@ -13,7 +18,7 @@ export async function POST(request: Request) {
       currency: details?.purchase_units?.[0]?.amount?.currency_code || "USD",
       status: details?.status || "UNKNOWN",
       orderId: details?.id,
-      time: new Date().toISOString(),
+      time: currentTimeInPakistan,
       cartItems: cart || [],
     });
 

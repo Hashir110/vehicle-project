@@ -54,6 +54,7 @@ export default function About() {
               width={500}
               height={500}
               className="w-full max-w-[500px] rounded-lg shadow-lg object-cover"
+              priority
             />
           </div>
         </div>

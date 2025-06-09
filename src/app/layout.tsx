@@ -35,7 +35,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <Script
-          src={`https://www.paypal.com/sdk/js?client-id=${process.env.NEXT_PUBLIC_PAYPAL_CLIENT_SECRET}&disable-funding=paylater`}
+          src={`https://www.paypal.com/sdk/js?client-id=${process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID}&disable-funding=paylater`}
           strategy="beforeInteractive"
         />
       </head>

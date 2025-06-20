@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import Script from "next/script";
 import { Metadata } from "next";
+// import PayPalProvider from '@/app/components/PayPalProvider';
 
 export const metadata: Metadata = {
   title: "Vehiclevinsreport - Instant & Trusted Vehicle History Reports",
@@ -34,18 +35,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <Script
-          src={`https://www.paypal.com/sdk/js?client-id=${process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID}&disable-funding=paylater`}
+        {/* <Script
+          src={`https://www.paypal.com/js?client-id=${process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID}&disable-funding=paylater`}
           strategy="beforeInteractive"
-        />
+        /> */}
       </head>
       <body className="bg-white text-black">
+        {/* <PayPalProvider> */}
         <CartProvider>
           <Header />
           <main>{children}</main>
           <Footer />
           <ToastContainer />
         </CartProvider>
+        {/* </PayPalProvider> */}
       </body>
     </html>
   );

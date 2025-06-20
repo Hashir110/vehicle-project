@@ -77,7 +77,7 @@ const CheckoutPage = () => {
                   Your personal data will be used to process your order, support
                   your experience, and for other purposes described in our
                   privacy policy.
-                </p>
+                </p>z
               </div>
             </div>
           </div>

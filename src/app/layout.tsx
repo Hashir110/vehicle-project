@@ -1,8 +1,6 @@
 import { CartProvider } from "@/context/CartContext";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import "./globals.css";
-import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import Script from "next/script";
 import { Metadata } from "next";

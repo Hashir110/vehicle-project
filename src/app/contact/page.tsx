@@ -106,14 +106,14 @@ export default function Contact() {
                   className="text-red-600 text-lg cursor-pointer mt-1"
                   onClick={() =>
                     window.open(
-                      "https://www.google.com/maps/search/?api=1&query=123+Main+Street,+Hyderabad,+Pakistan",
+                      "https://www.google.com/maps/search/?api=1&query=123+Main+Street,+Karachi,+Pakistan",
                       "_blank"
                     )
                   }
                 />
                 <span>
                   <span className="font-semibold">Address:</span> 123 Main
-                  Street, Hyderabad, Pakistan
+                  Street, Karachi, Pakistan
                 </span>
               </p>
               <p className="flex items-start gap-3">

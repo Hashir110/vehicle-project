@@ -4,6 +4,9 @@ import Header from "./components/Header";
 import { ToastContainer } from "react-toastify";
 import Script from "next/script";
 import { Metadata } from "next";
+import "./globals.css";
+import "react-toastify/dist/ReactToastify.css";
+
 
 export const metadata: Metadata = {
   title: "Vehiclevinsreport - Instant & Trusted Vehicle History Reports",
